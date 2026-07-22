@@ -206,6 +206,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "limiting-reactant-calculator",
+    name: "Limiting Reactant Calculator",
+    shortDescription:
+      "Identify the limiting reagent, calculate excess reactant remaining, and estimate theoretical product yield.",
+    category: "Chemistry",
+    href: "/calculators/limiting-reactant-calculator",
+    keywords: [
+      "limiting reactant calculator",
+      "limiting reagent calculator",
+      "excess reactant calculator",
+      "theoretical yield calculator",
+      "limiting reactant and excess calculator",
+      "stoichiometric reactant calculator",
+    ],
+  },
+  {
     slug: "ph-calculator",
     name: "pH Calculator",
     shortDescription:

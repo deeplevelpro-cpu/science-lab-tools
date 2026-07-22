@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CalculatorTrustPanel } from "@/components/calculator-trust";
-import { StoichiometryCalculator } from "@/components/calculators/stoichiometry-calculator";
+import { LimitingReactantCalculator } from "@/components/calculators/limiting-reactant-calculator";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pagePath = "/calculators/stoichiometry-calculator";
+const pagePath = "/calculators/limiting-reactant-calculator";
 const pageUrl = absoluteUrl(pagePath);
 
 const title =
-  "Stoichiometry Calculator: Convert Moles and Grams";
+  "Limiting Reactant Calculator: Find Excess and Yield";
 
 const description =
-  "Use this free stoichiometry calculator to convert between reactants and products using balanced-equation coefficients, moles, grams, and molar mass.";
+  "Use this free limiting reactant calculator to identify the limiting reagent, find excess reactant remaining, and calculate theoretical product yield.";
 
 export const metadata: Metadata = {
   title,
@@ -38,46 +38,45 @@ export const metadata: Metadata = {
 
 const faqItems = [
   {
-    question: "What is stoichiometry?",
+    question: "What is a limiting reactant?",
     answer:
-      "Stoichiometry uses the coefficients in a balanced chemical equation to calculate quantitative relationships between reactants and products.",
+      "The limiting reactant is the substance consumed first in a chemical reaction. It determines the maximum amount of product that can form.",
   },
   {
     question:
-      "Does a chemical equation need to be balanced before using this calculator?",
+      "How do you identify the limiting reactant?",
     answer:
-      "Yes. The coefficients must come from a correctly balanced equation because they define the mole ratio used in the calculation.",
+      "Convert each reactant amount to moles, divide each amount by its balanced-equation coefficient, and compare the resulting reaction extents. The smallest value identifies the limiting reactant.",
   },
   {
     question:
-      "How do I convert grams to moles in a stoichiometry calculation?",
+      "Does the chemical equation need to be balanced?",
     answer:
-      "Divide the substance mass in grams by its molar mass in grams per mole. The calculator performs this conversion when grams are selected.",
+      "Yes. Limiting-reactant calculations depend on the mole ratios represented by coefficients in a correctly balanced chemical equation.",
   },
   {
     question:
-      "How do I convert the calculated moles into grams?",
+      "Can reactant amounts be entered in grams?",
     answer:
-      "Multiply the calculated target moles by the target substance molar mass. Select grams as the target unit and enter the target molar mass.",
+      "Yes. Enter the molar mass for every reactant supplied in grams so the calculator can convert mass to moles before comparing reactants.",
+  },
+  {
+    question: "What is an excess reactant?",
+    answer:
+      "An excess reactant is present in more than the stoichiometric amount required. Some of it remains after the limiting reactant is consumed.",
   },
   {
     question:
-      "Where do stoichiometric coefficients come from?",
+      "Is calculated product yield the same as actual yield?",
     answer:
-      "They are the numbers placed before chemical formulas when an equation is balanced. An implied coefficient of one should be entered as 1.",
-  },
-  {
-    question:
-      "Can this calculator identify the limiting reactant?",
-    answer:
-      "This calculator converts one known substance into a target amount. A limiting-reactant calculation requires comparing the available amounts of two or more reactants.",
+      "No. The calculator gives theoretical yield, which assumes complete reaction. Actual laboratory yield may be lower because of incomplete reactions, side reactions, or product loss.",
   },
 ];
 
 const webApplicationSchema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "Stoichiometry Calculator",
+  name: "Limiting Reactant Calculator",
   url: pageUrl,
   description,
   applicationCategory: "EducationalApplication",
@@ -95,6 +94,7 @@ const webApplicationSchema = {
     url: siteConfig.url,
   },
 };
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -127,13 +127,13 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 3,
-      name: "Stoichiometry Calculator",
+      name: "Limiting Reactant Calculator",
       item: pageUrl,
     },
   ],
 };
 
-export default function StoichiometryCalculatorPage() {
+export default function LimitingReactantCalculatorPage() {
   return (
     <main>
       {[webApplicationSchema, faqSchema, breadcrumbSchema].map(
@@ -159,24 +159,24 @@ export default function StoichiometryCalculatorPage() {
             <Link href="/calculators">Calculators</Link>
             <span aria-hidden="true">/</span>
             <span aria-current="page">
-              Stoichiometry Calculator
+              Limiting Reactant Calculator
             </span>
           </nav>
 
           <div className="calculator-page__intro">
             <p className="eyebrow">Chemistry calculator</p>
 
-            <h1>Stoichiometry Calculator</h1>
+            <h1>Limiting Reactant Calculator</h1>
 
             <p>
-              Convert a known amount of a reactant or product
-              into the required amount of another substance
-              using coefficients from a balanced chemical
-              equation.
+              Compare two reactants from a balanced chemical
+              equation, identify the limiting reagent, calculate
+              the excess amount remaining, and estimate
+              theoretical product yield.
             </p>
           </div>
 
-          <StoichiometryCalculator />
+          <LimitingReactantCalculator />
         </Container>
       </section>
 
@@ -184,77 +184,78 @@ export default function StoichiometryCalculatorPage() {
         <Container className="article-layout">
           <article className="article-content">
             <section aria-labelledby="formula-heading">
-              <p className="eyebrow">Stoichiometry formula</p>
+              <p className="eyebrow">
+                Limiting reactant formula
+              </p>
 
               <h2 id="formula-heading">
-                How the stoichiometry calculation works
+                How to calculate the limiting reactant
               </h2>
 
               <p>
-                A balanced chemical equation provides a mole
-                ratio between substances. First convert the
-                known quantity to moles, apply the coefficient
-                ratio, and then convert the target moles to
-                grams when a mass result is required.
+                Every reactant must first be expressed in moles.
+                Divide the available moles of each reactant by
+                its coefficient in the balanced equation. The
+                reactant with the smaller result has the smaller
+                reaction extent and limits the reaction.
               </p>
 
               <div className="formula-card">
                 <p>
-                  Target moles = known moles ×
-                  (target coefficient ÷ known coefficient)
+                  Reaction extent = available moles ÷
+                  stoichiometric coefficient
                 </p>
               </div>
 
               <p>
-                When the known amount is entered in grams:
+                After finding the smallest reaction extent,
+                calculate the theoretical amount of product:
               </p>
 
               <div className="formula-card">
                 <p>
-                  Known moles = known mass ÷ known molar mass
+                  Product moles = smallest reaction extent ×
+                  product coefficient
                 </p>
               </div>
 
               <p>
-                When the target result is required in grams:
+                If product mass is required, multiply the
+                calculated product moles by its molar mass.
               </p>
-
-              <div className="formula-card">
-                <p>
-                  Target mass = target moles × target molar mass
-                </p>
-              </div>
             </section>
 
             <section aria-labelledby="steps-heading">
               <p className="eyebrow">Calculation process</p>
 
               <h2 id="steps-heading">
-                How to use the stoichiometry calculator
+                How to use the limiting reactant calculator
               </h2>
 
               <ol className="article-list">
                 <li>
-                  Balance the chemical equation before entering
-                  any values.
+                  Write and balance the complete chemical
+                  equation.
                 </li>
                 <li>
-                  Enter the available amount of the known
-                  substance in moles or grams.
+                  Enter the name, available amount, unit, and
+                  coefficient for reactant A.
                 </li>
                 <li>
-                  Enter the coefficient of the known substance.
+                  Enter the corresponding information for
+                  reactant B.
                 </li>
                 <li>
-                  Enter the coefficient of the target substance.
-                </li>
-                <li>
-                  Supply molar masses when either quantity uses
+                  Supply molar masses for amounts entered in
                   grams.
                 </li>
                 <li>
-                  Calculate and review the mole conversion and
-                  target amount.
+                  Enter the product coefficient and choose
+                  moles or grams for the result.
+                </li>
+                <li>
+                  Calculate and review the limiting reactant,
+                  excess reactant, and theoretical yield.
                 </li>
               </ol>
             </section>
@@ -263,69 +264,61 @@ export default function StoichiometryCalculatorPage() {
               <p className="eyebrow">Worked example</p>
 
               <h2 id="example-heading">
-                Hydrogen-to-water stoichiometry example
+                Hydrogen and oxygen limiting-reactant example
               </h2>
 
-              <p>
-                Consider the balanced equation:
-              </p>
+              <p>Consider the balanced reaction:</p>
 
               <div className="formula-card">
                 <p>2H₂ + O₂ → 2H₂O</p>
               </div>
 
               <p>
-                Suppose 4.032 grams of hydrogen gas are
-                available. The molar mass of H₂ is 2.016 g/mol,
-                and the molar mass of H₂O is 18.015 g/mol.
+                Suppose 2 moles of hydrogen and 2 moles of
+                oxygen are available.
               </p>
 
               <ol className="article-list">
                 <li>
-                  Hydrogen moles = 4.032 g ÷ 2.016 g/mol =
-                  2 mol.
+                  Hydrogen reaction extent = 2 mol ÷ 2 = 1.
                 </li>
                 <li>
-                  The H₂-to-H₂O coefficient ratio is 2 ÷ 2 =
-                  1.
+                  Oxygen reaction extent = 2 mol ÷ 1 = 2.
                 </li>
                 <li>
-                  Water moles = 2 mol × 1 = 2 mol.
+                  Hydrogen has the smaller reaction extent, so
+                  hydrogen is the limiting reactant.
                 </li>
                 <li>
-                  Water mass = 2 mol × 18.015 g/mol =
-                  36.03 g.
+                  Water produced = 1 × 2 = 2 moles.
+                </li>
+                <li>
+                  Oxygen used = 1 × 1 = 1 mole, leaving 1 mole
+                  of oxygen in excess.
                 </li>
               </ol>
-
-              <p>
-                Therefore, 4.032 grams of hydrogen can
-                theoretically produce 36.03 grams of water
-                when oxygen is available in excess and the
-                reaction proceeds completely.
-              </p>
             </section>
 
-            <section aria-labelledby="coefficients-heading">
-              <p className="eyebrow">Balanced equations</p>
+            <section aria-labelledby="difference-heading">
+              <p className="eyebrow">Key chemistry concept</p>
 
-              <h2 id="coefficients-heading">
-                Why stoichiometric coefficients matter
+              <h2 id="difference-heading">
+                Limiting reactant versus excess reactant
               </h2>
 
               <p>
-                Coefficients describe the relative number of
-                molecules or moles involved in a reaction. In
-                the equation 2H₂ + O₂ → 2H₂O, two moles of
-                hydrogen react with one mole of oxygen to
-                produce two moles of water.
+                The limiting reactant is completely consumed
+                first and controls the theoretical product
+                yield. The excess reactant is supplied in a
+                greater amount than the balanced equation
+                requires and remains after the reaction.
               </p>
 
               <p>
-                Subscripts inside a chemical formula describe
-                the composition of one molecule. They must not
-                be used as substitutes for balanced-equation
-                coefficients.
+                When both normalized reactant amounts are equal,
+                the reactants are present in exact
+                stoichiometric proportions. Neither reactant is
+                left in excess under the ideal model.
               </p>
             </section>
 
@@ -333,10 +326,14 @@ export default function StoichiometryCalculatorPage() {
               <p className="eyebrow">Common mistakes</p>
 
               <h2 id="mistakes-heading">
-                Stoichiometry calculation mistakes
+                Limiting-reactant calculation mistakes
               </h2>
 
               <ul className="article-list">
+                <li>
+                  Comparing masses directly instead of first
+                  converting them to moles.
+                </li>
                 <li>
                   Using coefficients from an unbalanced
                   chemical equation.
@@ -346,17 +343,16 @@ export default function StoichiometryCalculatorPage() {
                   coefficients.
                 </li>
                 <li>
-                  Applying a mass ratio directly instead of a
-                  mole ratio.
+                  Selecting the reactant with fewer moles
+                  without considering the mole ratio.
                 </li>
                 <li>
-                  Using an incorrect molar mass for a compound.
+                  Using an incorrect molar mass for a reactant
+                  or product.
                 </li>
                 <li>
-                  Reversing the known and target coefficients.
-                </li>
-                <li>
-                  Rounding intermediate results too early.
+                  Treating theoretical yield as guaranteed
+                  laboratory yield.
                 </li>
               </ul>
             </section>
@@ -367,8 +363,20 @@ export default function StoichiometryCalculatorPage() {
               </p>
 
               <h2 id="related-heading">
-                Continue your chemistry calculations
+                Continue your reaction calculations
               </h2>
+
+              <p>
+                Use the{" "}
+                <Link
+                  className="article-inline-link"
+                  href="/calculators/stoichiometry-calculator"
+                >
+                  Stoichiometry Calculator
+                </Link>{" "}
+                to convert a known reactant or product amount
+                through a balanced-equation mole ratio.
+              </p>
 
               <p>
                 Use the{" "}
@@ -378,9 +386,8 @@ export default function StoichiometryCalculatorPage() {
                 >
                   Molecular Weight Calculator
                 </Link>{" "}
-                to calculate the molar mass of a chemical
-                formula before completing a grams-based
-                stoichiometry problem.
+                to obtain the molar masses required for
+                grams-based calculations.
               </p>
 
               <p>
@@ -391,32 +398,8 @@ export default function StoichiometryCalculatorPage() {
                 >
                   Mass to Moles Calculator
                 </Link>{" "}
-                for a direct conversion between mass and amount
-                of substance.
-              </p>
-
-              <p>
-                Use the{" "}
-                <Link
-                  className="article-inline-link"
-                  href="/calculators/limiting-reactant-calculator"
-                >
-                  Limiting Reactant Calculator
-                </Link>{" "}
-                to compare available reactants, identify the
-                limiting reagent, and calculate theoretical yield.
-              </p>
-
-              <p>
-                Use the{" "}
-                <Link
-                  className="article-inline-link"
-                  href="/calculators/molarity-calculator"
-                >
-                  Molarity Calculator
-                </Link>{" "}
-                when a reaction problem involves solution
-                concentration and volume.
+                for direct conversions between mass, moles, and
+                molar mass.
               </p>
             </section>
 
@@ -426,7 +409,7 @@ export default function StoichiometryCalculatorPage() {
               </p>
 
               <h2 id="faq-heading">
-                Stoichiometry calculator FAQ
+                Limiting reactant calculator FAQ
               </h2>
 
               <div className="faq-list">
@@ -446,15 +429,15 @@ export default function StoichiometryCalculatorPage() {
                 Quick reference
               </p>
 
-              <h2>Stoichiometry checklist</h2>
+              <h2>Limiting-reactant checklist</h2>
 
               <ul>
                 <li>Balance the chemical equation</li>
-                <li>Identify the known substance</li>
-                <li>Convert the known amount to moles</li>
-                <li>Apply the coefficient ratio</li>
-                <li>Convert target moles when required</li>
-                <li>Round only the final answer</li>
+                <li>Convert every reactant to moles</li>
+                <li>Divide moles by each coefficient</li>
+                <li>Select the smallest reaction extent</li>
+                <li>Calculate theoretical product yield</li>
+                <li>Find the excess amount remaining</li>
               </ul>
             </div>
           </aside>
