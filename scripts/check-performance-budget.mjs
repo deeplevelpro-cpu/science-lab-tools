@@ -54,6 +54,7 @@ const routes = {
 
 const sharedGzipBudget = 25 * 1024;
 const calculatorUniqueGzipBudget = 8 * 1024;
+const calculatorsHubUniqueGzipBudget = 2 * 1024;
 const staticUniqueGzipBudget = 512;
 
 function parseManifest(manifestPath) {
@@ -168,7 +169,9 @@ for (const [label, chunks] of routeChunks) {
 
   const budget = isCalculator
     ? calculatorUniqueGzipBudget
-    : staticUniqueGzipBudget;
+    : label === "Calculators hub"
+      ? calculatorsHubUniqueGzipBudget
+      : staticUniqueGzipBudget;
 
   console.log(
     `${label}: ${(uniqueGzip / 1024).toFixed(1)} KB unique gzip`,
