@@ -128,6 +128,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: absoluteUrl(
+        "/calculators/stoichiometry-calculator",
+      ),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: absoluteUrl("/calculators/ph-calculator"),
       changeFrequency: "monthly",
       priority: 0.9,

@@ -190,6 +190,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "stoichiometry-calculator",
+    name: "Stoichiometry Calculator",
+    shortDescription:
+      "Convert reactant and product amounts using balanced-equation mole ratios, moles, grams, and molar masses.",
+    category: "Chemistry",
+    href: "/calculators/stoichiometry-calculator",
+    keywords: [
+      "stoichiometry calculator",
+      "chemical stoichiometry calculator",
+      "mole ratio calculator",
+      "grams to grams stoichiometry calculator",
+      "moles to grams stoichiometry calculator",
+      "reactant product calculator",
+    ],
+  },
+  {
     slug: "ph-calculator",
     name: "pH Calculator",
     shortDescription:
