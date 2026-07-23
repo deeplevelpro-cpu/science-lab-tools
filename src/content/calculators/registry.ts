@@ -206,6 +206,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "molecular-formula-calculator",
+    name: "Molecular Formula Calculator",
+    shortDescription:
+      "Calculate a molecular formula from an empirical formula and compound molar mass with a whole-number multiplier and clear working steps.",
+    category: "Chemistry",
+    href: "/calculators/molecular-formula-calculator",
+    keywords: [
+      "molecular formula calculator",
+      "empirical formula to molecular formula calculator",
+      "calculate molecular formula",
+      "molecular formula from molar mass",
+      "empirical and molecular formula calculator",
+      "molecular formula chemistry calculator",
+    ],
+  },
+  {
     slug: "stoichiometry-calculator",
     name: "Stoichiometry Calculator",
     shortDescription:
