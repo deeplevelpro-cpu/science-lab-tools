@@ -285,6 +285,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "ideal-gas-law-calculator",
+    name: "Ideal Gas Law Calculator",
+    shortDescription:
+      "Calculate pressure, volume, moles, or temperature using PV = nRT with automatic unit conversion.",
+    category: "Chemistry",
+    href: "/calculators/ideal-gas-law-calculator",
+    keywords: [
+      "ideal gas law calculator",
+      "pv nrt calculator",
+      "gas law calculator",
+      "pressure volume temperature calculator",
+      "moles gas calculator",
+      "ideal gas equation calculator",
+    ],
+  },
+  {
     slug: "pulley-calculator",
     name: "Pulley Calculator",
     shortDescription:
