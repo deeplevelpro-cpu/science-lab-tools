@@ -254,6 +254,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "percent-yield-calculator",
+    name: "Percent Yield Calculator",
+    shortDescription:
+      "Calculate reaction percent yield from actual and theoretical yield with supporting efficiency and yield-difference details.",
+    category: "Chemistry",
+    href: "/calculators/percent-yield-calculator",
+    keywords: [
+      "percent yield calculator",
+      "percentage yield calculator",
+      "reaction yield calculator",
+      "actual yield calculator",
+      "theoretical yield calculator",
+      "chemistry percent yield calculator",
+    ],
+  },
+  {
     slug: "ph-calculator",
     name: "pH Calculator",
     shortDescription:
