@@ -25,8 +25,8 @@ const calculatorPages = readdirSync(
 
 describe("calculator trust coverage", () => {
   it("covers all published calculator pages", () => {
-    expect(calculatorPages).toHaveLength(62);
-    expect(calculators).toHaveLength(62);
+    expect(calculatorPages).toHaveLength(63);
+    expect(calculators).toHaveLength(63);
   });
 
   it("adds the trust import to every calculator page", () => {
@@ -77,7 +77,7 @@ describe("calculator trust coverage", () => {
 
     expect(distribution).toEqual({
       laboratory: 10,
-      chemistry: 7,
+      chemistry: 8,
       physics: 45,
     });
   });

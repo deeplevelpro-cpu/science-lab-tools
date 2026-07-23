@@ -190,6 +190,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "empirical-formula-calculator",
+    name: "Empirical Formula Calculator",
+    shortDescription:
+      "Calculate an empirical formula from element masses or percentage composition with mole conversions and simplest whole-number ratios.",
+    category: "Chemistry",
+    href: "/calculators/empirical-formula-calculator",
+    keywords: [
+      "empirical formula calculator",
+      "empirical formula calculator from percentage",
+      "empirical formula calculator from mass",
+      "calculate empirical formula",
+      "simplest formula calculator",
+      "percent composition to empirical formula",
+    ],
+  },
+  {
     slug: "stoichiometry-calculator",
     name: "Stoichiometry Calculator",
     shortDescription:
