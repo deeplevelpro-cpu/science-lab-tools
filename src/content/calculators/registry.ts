@@ -301,6 +301,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "boyles-law-calculator",
+    name: "Boyle's Law Calculator",
+    shortDescription:
+      "Calculate initial or final pressure and volume using P₁V₁ = P₂V₂ with automatic unit conversion.",
+    category: "Chemistry",
+    href: "/calculators/boyles-law-calculator",
+    keywords: [
+      "boyles law calculator",
+      "boyle's law calculator",
+      "p1v1 p2v2 calculator",
+      "pressure volume calculator",
+      "gas compression calculator",
+      "boyles law equation calculator",
+    ],
+  },
+  {
     slug: "pulley-calculator",
     name: "Pulley Calculator",
     shortDescription:
