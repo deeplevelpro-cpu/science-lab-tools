@@ -317,6 +317,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "charles-law-calculator",
+    name: "Charles's Law Calculator",
+    shortDescription:
+      "Calculate initial or final gas volume and temperature using V₁/T₁ = V₂/T₂ with automatic unit conversion.",
+    category: "Chemistry",
+    href: "/calculators/charles-law-calculator",
+    keywords: [
+      "charles law calculator",
+      "charles's law calculator",
+      "v1 t1 v2 t2 calculator",
+      "volume temperature calculator",
+      "gas expansion calculator",
+      "charles law equation calculator",
+    ],
+  },
+  {
     slug: "pulley-calculator",
     name: "Pulley Calculator",
     shortDescription:
