@@ -32,7 +32,7 @@ function searchCalculators(
 
 describe("calculator directory data behavior", () => {
   it("contains all published calculators", () => {
-    expect(calculators).toHaveLength(69);
+    expect(calculators).toHaveLength(70);
   });
 
   it("finds Molecular Weight Calculator by name", () => {
@@ -50,7 +50,7 @@ describe("calculator directory data behavior", () => {
   it("filters Chemistry calculators", () => {
     const results = searchCalculators("", "Chemistry");
 
-    expect(results).toHaveLength(14);
+    expect(results).toHaveLength(15);
     expect(
       results.every(
         (calculator) =>

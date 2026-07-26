@@ -333,6 +333,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "combined-gas-law-calculator",
+    name: "Combined Gas Law Calculator",
+    shortDescription:
+      "Calculate initial or final pressure, volume, or temperature using P₁V₁/T₁ = P₂V₂/T₂ with automatic unit conversion.",
+    category: "Chemistry",
+    href: "/calculators/combined-gas-law-calculator",
+    keywords: [
+      "combined gas law calculator",
+      "p1 v1 t1 p2 v2 t2 calculator",
+      "pressure volume temperature calculator",
+      "combined gas equation calculator",
+      "gas law calculator",
+      "combined gas law solver",
+    ],
+  },
+  {
     slug: "gay-lussacs-law-calculator",
     name: "Gay-Lussac's Law Calculator",
     shortDescription:
