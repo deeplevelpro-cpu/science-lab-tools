@@ -333,6 +333,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "gay-lussacs-law-calculator",
+    name: "Gay-Lussac's Law Calculator",
+    shortDescription:
+      "Calculate initial or final gas pressure and temperature using P₁/T₁ = P₂/T₂ with automatic unit conversion.",
+    category: "Chemistry",
+    href: "/calculators/gay-lussacs-law-calculator",
+    keywords: [
+      "gay lussacs law calculator",
+      "gay-lussac's law calculator",
+      "p1 t1 p2 t2 calculator",
+      "pressure temperature calculator",
+      "constant volume gas law calculator",
+      "gay lussac law equation calculator",
+    ],
+  },
+  {
     slug: "pulley-calculator",
     name: "Pulley Calculator",
     shortDescription:
