@@ -365,6 +365,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "daltons-law-calculator",
+    name: "Dalton's Law Calculator",
+    shortDescription:
+      "Calculate total pressure or a missing partial pressure using Dalton's law with automatic unit conversion.",
+    category: "Chemistry",
+    href: "/calculators/daltons-law-calculator",
+    keywords: [
+      "daltons law calculator",
+      "dalton's law calculator",
+      "partial pressure calculator",
+      "total pressure calculator",
+      "missing partial pressure calculator",
+      "dalton law equation calculator",
+    ],
+  },
+  {
     slug: "pulley-calculator",
     name: "Pulley Calculator",
     shortDescription:
