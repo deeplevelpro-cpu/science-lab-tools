@@ -349,6 +349,13 @@ export default function CombinedGasLawCalculatorPage() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/calculators/avogadros-law-calculator">
+                    Avogadro&apos;s Law Calculator
+                  </Link>{" "}
+                  for volume and amount changes at constant
+                  temperature and pressure.
+                </li>
+                <li>
                   <Link href="/calculators/gay-lussacs-law-calculator">
                     Gay-Lussac&apos;s Law Calculator
                   </Link>

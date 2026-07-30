@@ -333,6 +333,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "avogadros-law-calculator",
+    name: "Avogadro's Law Calculator",
+    shortDescription:
+      "Calculate gas volume or amount using V₁/n₁ = V₂/n₂ with automatic liter, milliliter, cubic meter, mole, and millimole conversion.",
+    category: "Chemistry",
+    href: "/calculators/avogadros-law-calculator",
+    keywords: [
+      "avogadros law calculator",
+      "avogadro's law calculator",
+      "v1 n1 v2 n2 calculator",
+      "gas volume moles calculator",
+      "volume mole relationship calculator",
+      "avogadro law equation calculator",
+    ],
+  },
+  {
     slug: "combined-gas-law-calculator",
     name: "Combined Gas Law Calculator",
     shortDescription:

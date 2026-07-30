@@ -574,15 +574,16 @@ export default function IdealGasLawCalculatorPage() {
                 Related calculator
               </p>
 
-              <h2>Calculate molarity</h2>
+              <h2>Compare volume and moles</h2>
 
               <p>
-                Find concentration from moles and
-                solution volume.
+                Calculate how gas volume changes with the
+                amount of gas at constant temperature and
+                pressure.
               </p>
 
-              <Link href="/calculators/molarity-calculator">
-                Open Molarity Calculator
+              <Link href="/calculators/avogadros-law-calculator">
+                Open Avogadro&apos;s Law Calculator
               </Link>
             </div>
           </aside>

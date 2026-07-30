@@ -2,23 +2,25 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { CalculatorTrustPanel } from "@/components/calculator-trust";
-import { CharlesLawCalculator } from "@/components/calculators/charles-law-calculator";
+import { AvogadrosLawCalculator } from "@/components/calculators/avogadros-law-calculator";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
 export const metadata: Metadata = {
-  title: "Charles's Law Calculator | Volume & Temperature",
+  title: "Avogadro's Law Calculator | Volume & Moles",
   description:
-    "Calculate initial or final gas volume and temperature with Charles's law, V₁/T₁ = V₂/T₂. Supports Kelvin, Celsius, Fahrenheit, liters, milliliters, and cubic meters.",
+    "Calculate gas volume or amount with Avogadro's law, V₁/n₁ = V₂/n₂. Convert liters, milliliters, cubic meters, moles, and millimoles automatically.",
   alternates: {
-    canonical: "/calculators/charles-law-calculator",
+    canonical: "/calculators/avogadros-law-calculator",
   },
   openGraph: {
-    title: "Charles's Law Calculator",
+    title: "Avogadro's Law Calculator",
     description:
-      "Solve gas volume and temperature problems using V₁/T₁ = V₂/T₂ with automatic unit conversion.",
-    url: absoluteUrl("/calculators/charles-law-calculator"),
+      "Solve gas volume and amount problems using V₁/n₁ = V₂/n₂ with automatic unit conversion.",
+    url: absoluteUrl(
+      "/calculators/avogadros-law-calculator",
+    ),
     siteName: siteConfig.name,
     type: "website",
   },
@@ -26,44 +28,46 @@ export const metadata: Metadata = {
 
 const faqItems = [
   {
-    question: "What is Charles's law?",
+    question: "What is Avogadro's law?",
     answer:
-      "Charles's law states that the volume of a fixed amount of gas is directly proportional to its absolute temperature when pressure remains constant.",
+      "Avogadro's law states that equal volumes of gases at the same temperature and pressure contain equal numbers of particles. For a changing gas sample at constant temperature and pressure, volume is directly proportional to the amount of gas.",
   },
   {
     question: "What formula does the calculator use?",
     answer:
-      "The calculator uses V₁/T₁ = V₂/T₂, where V is gas volume and T is absolute temperature measured in Kelvin.",
+      "The calculator uses V₁/n₁ = V₂/n₂, where V represents gas volume and n represents the amount of gas in moles.",
   },
   {
-    question: "Must temperature be entered in Kelvin?",
+    question: "What conditions must remain constant?",
     answer:
-      "The equation requires absolute temperature. You may enter Kelvin, Celsius, or Fahrenheit because the calculator converts temperatures to Kelvin before solving.",
+      "Temperature and pressure must remain constant while the amount and volume of gas change.",
   },
   {
-    question: "Can Charles's law use Celsius directly?",
+    question: "Can the calculator use millimoles?",
     answer:
-      "No. Celsius values must first be converted to Kelvin. Using Celsius directly in the ratio produces an incorrect result.",
+      "Yes. You can use moles or millimoles for either gas amount. The calculator converts the inputs to moles before solving.",
   },
   {
-    question: "When does Charles's law apply?",
+    question: "Can different volume units be mixed?",
     answer:
-      "It applies when the gas pressure and amount of gas remain constant and the gas behaves approximately as an ideal gas.",
+      "Yes. Cubic meters, liters, and milliliters can be mixed because the calculator converts all volume values before applying the equation.",
   },
   {
-    question: "Why does gas volume increase when heated?",
+    question: "What happens when the amount of gas doubles?",
     answer:
-      "At constant pressure, faster-moving heated gas particles require more space, so the gas expands as its absolute temperature rises.",
+      "At constant temperature and pressure, doubling the amount of gas doubles its volume because volume and amount are directly proportional.",
   },
 ];
 
 const webApplicationJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "Charles's Law Calculator",
-  url: absoluteUrl("/calculators/charles-law-calculator"),
+  name: "Avogadro's Law Calculator",
+  url: absoluteUrl(
+    "/calculators/avogadros-law-calculator",
+  ),
   description:
-    "Calculate initial or final gas volume and temperature using Charles's law.",
+    "Calculate gas volume or amount using Avogadro's law with automatic unit conversion.",
   applicationCategory: "EducationalApplication",
   operatingSystem: "Any",
   browserRequirements: "Requires JavaScript",
@@ -106,13 +110,15 @@ const breadcrumbJsonLd = {
     {
       "@type": "ListItem",
       position: 3,
-      name: "Charles's Law Calculator",
-      item: absoluteUrl("/calculators/charles-law-calculator"),
+      name: "Avogadro's Law Calculator",
+      item: absoluteUrl(
+        "/calculators/avogadros-law-calculator",
+      ),
     },
   ],
 };
 
-export default function CharlesLawCalculatorPage() {
+export default function AvogadrosLawCalculatorPage() {
   return (
     <main>
       <script
@@ -138,13 +144,12 @@ export default function CharlesLawCalculatorPage() {
         <Container>
           <p className="eyebrow">Chemistry calculator</p>
 
-          <h1>Charles&apos;s Law Calculator</h1>
+          <h1>Avogadro&apos;s Law Calculator</h1>
 
           <p className="tool-page-hero__description">
             Calculate initial or final gas volume and
-            temperature using V₁/T₁ = V₂/T₂, with
-            automatic volume and temperature unit
-            conversion.
+            amount using V₁/n₁ = V₂/n₂, with automatic
+            volume and mole unit conversion.
           </p>
 
           <nav aria-label="Breadcrumb">
@@ -156,7 +161,7 @@ export default function CharlesLawCalculatorPage() {
                 <Link href="/calculators">Calculators</Link>
               </li>
               <li aria-current="page">
-                Charles&apos;s Law Calculator
+                Avogadro&apos;s Law Calculator
               </li>
             </ol>
           </nav>
@@ -165,10 +170,10 @@ export default function CharlesLawCalculatorPage() {
 
       <section
         className="calculator-section"
-        aria-label="Charles's law calculator"
+        aria-label="Avogadro's law calculator"
       >
         <Container>
-          <CharlesLawCalculator />
+          <AvogadrosLawCalculator />
         </Container>
       </section>
 
@@ -179,23 +184,24 @@ export default function CharlesLawCalculatorPage() {
               <p className="eyebrow">Gas-law guide</p>
 
               <h2 id="overview-heading">
-                What is Charles&apos;s law?
+                What is Avogadro&apos;s law?
               </h2>
 
               <p>
-                Charles&apos;s law describes how the
-                volume of a fixed amount of gas changes
-                with its absolute temperature when
-                pressure remains constant. As the gas
-                becomes hotter, its volume increases. As
-                it cools, its volume decreases.
+                Avogadro&apos;s law describes the direct
+                relationship between a gas&apos;s volume
+                and the amount of gas present when
+                temperature and pressure remain constant.
+                Adding more gas increases the volume,
+                while removing gas decreases it.
               </p>
 
               <p>
-                Volume and absolute temperature are
-                directly proportional. Doubling the
-                Kelvin temperature doubles the gas
-                volume under the required conditions.
+                Equal volumes of gases at the same
+                temperature and pressure contain equal
+                numbers of particles. Therefore, a
+                sample&apos;s volume-to-mole ratio remains
+                constant under these conditions.
               </p>
             </section>
 
@@ -203,29 +209,26 @@ export default function CharlesLawCalculatorPage() {
               <p className="eyebrow">Core equation</p>
 
               <h2 id="formula-heading">
-                Charles&apos;s law formula
+                Avogadro&apos;s law formula
               </h2>
 
               <div className="formula-block">
-                <strong>V₁/T₁ = V₂/T₂</strong>
+                <strong>V₁/n₁ = V₂/n₂</strong>
               </div>
 
               <ul className="article-list">
                 <li>V₁ is the initial gas volume.</li>
-                <li>
-                  T₁ is the initial absolute temperature.
-                </li>
+                <li>n₁ is the initial amount of gas.</li>
                 <li>V₂ is the final gas volume.</li>
-                <li>
-                  T₂ is the final absolute temperature.
-                </li>
+                <li>n₂ is the final amount of gas.</li>
               </ul>
 
               <p>
-                Temperatures must represent an absolute
-                scale. The calculator converts Celsius
-                and Fahrenheit inputs to Kelvin before
-                applying the equation.
+                The symbol n represents the amount of
+                substance, normally measured in moles.
+                Volume and amount units may differ because
+                the calculator converts them before
+                solving the equation.
               </p>
             </section>
 
@@ -233,34 +236,33 @@ export default function CharlesLawCalculatorPage() {
               <p className="eyebrow">Solve any variable</p>
 
               <h2 id="rearranged-heading">
-                Rearranged Charles&apos;s law equations
+                Rearranged Avogadro&apos;s law equations
               </h2>
 
               <ul className="article-list">
                 <li>
                   Final volume:{" "}
-                  <strong>V₂ = V₁ × T₂ ÷ T₁</strong>
+                  <strong>V₂ = V₁ × n₂ ÷ n₁</strong>
                 </li>
                 <li>
                   Initial volume:{" "}
-                  <strong>V₁ = V₂ × T₁ ÷ T₂</strong>
+                  <strong>V₁ = V₂ × n₁ ÷ n₂</strong>
                 </li>
                 <li>
-                  Final temperature:{" "}
-                  <strong>T₂ = T₁ × V₂ ÷ V₁</strong>
+                  Final amount:{" "}
+                  <strong>n₂ = n₁ × V₂ ÷ V₁</strong>
                 </li>
                 <li>
-                  Initial temperature:{" "}
-                  <strong>T₁ = T₂ × V₁ ÷ V₂</strong>
+                  Initial amount:{" "}
+                  <strong>n₁ = V₁ × n₂ ÷ V₂</strong>
                 </li>
               </ul>
 
               <p>
-                Select the unknown variable, enter the
-                remaining three values, and choose the
-                required output unit. The calculator
-                performs the rearrangement and unit
-                conversion automatically.
+                Select the unknown variable and enter the
+                other three values. The tool rearranges
+                the equation, converts the units, and
+                returns the result in your selected unit.
               </p>
             </section>
 
@@ -268,40 +270,41 @@ export default function CharlesLawCalculatorPage() {
               <p className="eyebrow">Worked example</p>
 
               <h2 id="example-heading">
-                Calculate gas volume after heating
+                Calculate volume after adding gas
               </h2>
 
               <p>
-                A gas occupies 2 L at 300 K. It is heated
-                to 450 K while pressure remains constant.
-                Find the final volume.
+                A gas occupies 2 L when the sample
+                contains 1 mol. Find the new volume when
+                the amount increases to 2.5 mol at
+                constant temperature and pressure.
               </p>
 
               <ol className="calculation-steps">
                 <li>
                   Write the equation:{" "}
-                  <strong>V₁/T₁ = V₂/T₂</strong>.
+                  <strong>V₁/n₁ = V₂/n₂</strong>.
                 </li>
                 <li>
                   Rearrange it:{" "}
-                  <strong>V₂ = V₁ × T₂ ÷ T₁</strong>.
+                  <strong>V₂ = V₁ × n₂ ÷ n₁</strong>.
                 </li>
                 <li>
                   Substitute values:{" "}
                   <strong>
-                    V₂ = 2 L × 450 K ÷ 300 K
+                    V₂ = 2 L × 2.5 mol ÷ 1 mol
                   </strong>.
                 </li>
                 <li>
                   Calculate the result:{" "}
-                  <strong>V₂ = 3 L</strong>.
+                  <strong>V₂ = 5 L</strong>.
                 </li>
               </ol>
 
               <p>
-                The Kelvin temperature increases by a
-                factor of 1.5, so the volume also
-                increases by a factor of 1.5.
+                The amount of gas increases by a factor
+                of 2.5, so its volume also increases by
+                a factor of 2.5.
               </p>
             </section>
 
@@ -309,7 +312,7 @@ export default function CharlesLawCalculatorPage() {
               <p className="eyebrow">Supported units</p>
 
               <h2 id="units-heading">
-                Volume and temperature units
+                Volume and amount units
               </h2>
 
               <ul className="article-list">
@@ -318,16 +321,15 @@ export default function CharlesLawCalculatorPage() {
                   milliliters.
                 </li>
                 <li>
-                  Temperature: Kelvin, Celsius, and
-                  Fahrenheit.
-                </li>
-                <li>
-                  The calculated result uses the selected
-                  output unit.
+                  Amount of gas: moles and millimoles.
                 </li>
                 <li>
                   Mixed input units are converted before
                   the equation is solved.
+                </li>
+                <li>
+                  The answer uses the selected unit for
+                  the unknown variable.
                 </li>
               </ul>
             </section>
@@ -338,47 +340,49 @@ export default function CharlesLawCalculatorPage() {
               </p>
 
               <h2 id="conditions-heading">
-                When Charles&apos;s law applies
+                When Avogadro&apos;s law applies
               </h2>
 
               <ul className="article-list">
+                <li>Gas temperature remains constant.</li>
                 <li>Gas pressure remains constant.</li>
-                <li>The amount of gas remains fixed.</li>
-                <li>No gas enters or leaves the system.</li>
                 <li>
-                  Temperature is interpreted on an
-                  absolute scale.
+                  The container can change volume as the
+                  amount of gas changes.
                 </li>
                 <li>
                   The gas behaves approximately as an
                   ideal gas.
                 </li>
+                <li>
+                  Volume and gas amount are greater than
+                  zero.
+                </li>
               </ul>
             </section>
 
-            <section aria-labelledby="graph-heading">
+            <section aria-labelledby="relationship-heading">
               <p className="eyebrow">
-                Direct relationship
+                Direct proportionality
               </p>
 
-              <h2 id="graph-heading">
-                Understanding the volume-temperature graph
+              <h2 id="relationship-heading">
+                Volume and mole relationship
               </h2>
 
               <p>
-                A graph of gas volume against Kelvin
-                temperature forms a straight line when
-                pressure and the amount of gas remain
-                constant. This linear pattern shows that
-                volume is directly proportional to
-                absolute temperature.
+                A graph of volume against the amount of
+                gas in moles forms a straight line at
+                constant temperature and pressure. This
+                pattern shows that V is directly
+                proportional to n.
               </p>
 
               <p>
-                Extrapolating the ideal line toward zero
-                volume points to absolute zero, although
-                real gases usually liquefy before that
-                theoretical limit is reached.
+                If the number of moles doubles, volume
+                doubles. If the amount falls by half,
+                volume also falls by half, provided the
+                required conditions do not change.
               </p>
             </section>
 
@@ -393,24 +397,24 @@ export default function CharlesLawCalculatorPage() {
 
               <ul className="article-list">
                 <li>
-                  Never substitute Celsius or Fahrenheit
-                  directly into the temperature ratio.
+                  Do not apply the equation when
+                  temperature changes significantly.
                 </li>
                 <li>
-                  Do not use Charles&apos;s law when gas
-                  pressure changes significantly.
+                  Do not apply it when pressure changes.
                 </li>
                 <li>
-                  Volume values must be greater than zero.
+                  Keep units consistent or use the
+                  calculator&apos;s unit conversion.
                 </li>
                 <li>
-                  Temperatures must be above absolute
-                  zero.
+                  Never enter zero or negative volume or
+                  amount values.
                 </li>
                 <li>
-                  Real gases may depart from ideal
-                  behavior near condensation or at high
-                  pressure.
+                  Real gases can depart from ideal
+                  behavior at high pressure or near
+                  condensation.
                 </li>
               </ul>
             </section>
@@ -419,20 +423,8 @@ export default function CharlesLawCalculatorPage() {
               <p className="eyebrow">Related tools</p>
 
               <h2 id="related-heading">
-                Continue your gas-law calculations
+                Continue your gas calculations
               </h2>
-
-              <p>
-                Use the{" "}
-                <Link
-                  className="article-inline-link"
-                  href="/calculators/boyles-law-calculator"
-                >
-                  Boyle&apos;s Law Calculator
-                </Link>{" "}
-                when pressure and volume change at
-                constant temperature.
-              </p>
 
               <p>
                 Use the{" "}
@@ -443,30 +435,42 @@ export default function CharlesLawCalculatorPage() {
                   Ideal Gas Law Calculator
                 </Link>{" "}
                 when pressure, volume, moles, and
-                temperature are involved.
+                temperature are all involved.
               </p>
 
               <p>
                 Use the{" "}
                 <Link
                   className="article-inline-link"
-                  href="/calculators/avogadros-law-calculator"
+                  href="/calculators/charles-law-calculator"
                 >
-                  Avogadro&apos;s Law Calculator
+                  Charles&apos;s Law Calculator
                 </Link>{" "}
-                when gas volume changes with the amount of
-                gas at constant temperature and pressure.
+                when volume changes with temperature at
+                constant pressure.
               </p>
 
               <p>
                 Use the{" "}
                 <Link
                   className="article-inline-link"
-                  href="/calculators/temperature-converter"
+                  href="/calculators/combined-gas-law-calculator"
                 >
-                  Temperature Converter
+                  Combined Gas Law Calculator
                 </Link>{" "}
-                for standalone temperature conversions.
+                when pressure, volume, and temperature
+                change between two gas states.
+              </p>
+
+              <p>
+                Use the{" "}
+                <Link
+                  className="article-inline-link"
+                  href="/calculators/molarity-calculator"
+                >
+                  Molarity Calculator
+                </Link>{" "}
+                for solution concentration calculations.
               </p>
             </section>
 
@@ -476,7 +480,7 @@ export default function CharlesLawCalculatorPage() {
               </p>
 
               <h2 id="faq-heading">
-                Charles&apos;s law calculator FAQ
+                Avogadro&apos;s law calculator FAQ
               </h2>
 
               <div className="faq-list">
@@ -496,14 +500,15 @@ export default function CharlesLawCalculatorPage() {
                 Quick reference
               </p>
 
-              <h2>Charles&apos;s law checklist</h2>
+              <h2>Avogadro&apos;s law checklist</h2>
 
               <ul>
                 <li>Select the unknown variable</li>
                 <li>Enter the other three values</li>
-                <li>Choose volume and temperature units</li>
+                <li>Choose volume and amount units</li>
+                <li>Keep temperature constant</li>
                 <li>Keep pressure constant</li>
-                <li>Apply V₁/T₁ = V₂/T₂</li>
+                <li>Apply V₁/n₁ = V₂/n₂</li>
               </ul>
             </div>
 
@@ -515,8 +520,8 @@ export default function CharlesLawCalculatorPage() {
               <h2>Use the ideal gas law</h2>
 
               <p>
-                Include pressure and moles in your gas
-                calculation.
+                Include pressure and temperature in your
+                gas calculation.
               </p>
 
               <Link href="/calculators/ideal-gas-law-calculator">
