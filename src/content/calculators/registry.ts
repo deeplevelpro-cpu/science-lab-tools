@@ -397,6 +397,22 @@ export const calculators: readonly CalculatorDefinition[] = [
     ],
   },
   {
+    slug: "grahams-law-calculator",
+    name: "Graham's Law Calculator",
+    shortDescription:
+      "Calculate gas diffusion or effusion rate, time, and molar mass using Graham's law with automatic time-unit conversion.",
+    category: "Chemistry",
+    href: "/calculators/grahams-law-calculator",
+    keywords: [
+      "grahams law calculator",
+      "graham's law calculator",
+      "diffusion rate calculator",
+      "effusion rate calculator",
+      "gas molar mass calculator",
+      "graham law equation calculator",
+    ],
+  },
+  {
     slug: "pulley-calculator",
     name: "Pulley Calculator",
     shortDescription:
