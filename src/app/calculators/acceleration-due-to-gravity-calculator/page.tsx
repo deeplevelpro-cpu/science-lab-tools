@@ -82,6 +82,31 @@ export default function AccelerationDueToGravityCalculatorPage() {
     },
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: absoluteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Calculators",
+        item: absoluteUrl("/calculators"),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: pageTitle,
+        item: absoluteUrl(canonicalPath),
+      },
+    ],
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -101,6 +126,13 @@ export default function AccelerationDueToGravityCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(applicationSchema),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
         }}
       />
 
@@ -191,7 +223,7 @@ export default function AccelerationDueToGravityCalculatorPage() {
               <div className="formula-card">
                 <p>
                   Gravity
-                  <span>g = GM / r²</span>
+                  <span>g = GM ÷ r²</span>
                 </p>
               </div>
 
@@ -213,6 +245,13 @@ export default function AccelerationDueToGravityCalculatorPage() {
                   body&apos;s centre in metres.
                 </li>
               </ul>
+
+              <p>
+                <strong>Use consistent SI units:</strong>{" "}
+                enter mass in kilograms and radius or distance
+                in metres to obtain gravitational acceleration
+                in metres per second squared.
+              </p>
             </section>
 
             <section aria-labelledby="example-heading">
@@ -279,6 +318,83 @@ export default function AccelerationDueToGravityCalculatorPage() {
               </ul>
             </section>
 
+            <section aria-labelledby="limitations-heading">
+              <p className="eyebrow">
+                Model boundaries
+              </p>
+
+              <h2 id="limitations-heading">
+                Assumptions and limitations
+              </h2>
+
+              <p>
+                This calculation treats the celestial body as
+                spherically symmetric and uses distance from
+                the center of mass. It provides a Newtonian
+                estimate for common educational and planetary
+                calculations.
+              </p>
+
+              <ul className="article-list">
+                <li>
+                  The model does not account for local mass
+                  distribution or terrain.
+                </li>
+                <li>
+                  A measured surface value can vary with
+                  rotation, latitude, and altitude.
+                </li>
+                <li>
+                  Use the distance from the center, not height
+                  above the surface, as radius.
+                </li>
+              </ul>
+            </section>
+
+            <section aria-labelledby="references-heading">
+              <p className="eyebrow">
+                Scientific references
+              </p>
+
+              <h2 id="references-heading">
+                Sources for constants and method
+              </h2>
+
+              <ul className="article-list">
+                <li>
+                  <a
+                    className="article-inline-link"
+                    href="https://physics.nist.gov/cgi-bin/cuu/Value?bg="
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    NIST CODATA gravitational constant
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="article-inline-link"
+                    href="https://science.nasa.gov/solar-system/planets/earth/facts/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    NASA Earth facts
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="article-inline-link"
+                    href="https://openstax.org/books/university-physics-volume-1/pages/13-2-gravitation-near-earths-surface"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    OpenStax: gravitation near Earth&apos;s
+                    surface
+                  </a>
+                </li>
+              </ul>
+            </section>
+
             <section aria-labelledby="related-heading">
               <p className="eyebrow">
                 Related tools
@@ -309,6 +425,18 @@ export default function AccelerationDueToGravityCalculatorPage() {
                   Gravitational Potential Energy Calculator
                 </Link>{" "}
                 to calculate energy associated with height.
+              </p>
+
+              <p>
+                Use the{" "}
+                <Link
+                  className="article-inline-link"
+                  href="/calculators/weight-calculator"
+                >
+                  Weight Calculator
+                </Link>{" "}
+                to calculate weight from mass and local
+                gravitational acceleration.
               </p>
             </section>
 
