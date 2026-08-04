@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Momentum Calculator";
+const pageTitle = "Momentum Calculator | Mass & Velocity";
 const pageDescription =
   "Calculate linear momentum, mass, or velocity using p = mv, with signed motion values, supported SI units, and clear step-by-step calculation results.";
 

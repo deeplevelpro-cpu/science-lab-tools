@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Molarity Calculator";
+const pageTitle = "Molarity Calculator | Moles, Volume & Concentration";
 const pageDescription =
   "Calculate solution molarity from moles of solute and volume in liters or milliliters. Includes formula, unit conversion, worked example, and common mistakes.";
 

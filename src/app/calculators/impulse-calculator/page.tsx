@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Impulse Calculator";
+const pageTitle = "Impulse Calculator | Force, Time & Momentum";
 
 const pageDescription =
   "Calculate impulse, force, or time interval using J = FΔt, with momentum-change guidance, supported units, and clear step-by-step results.";

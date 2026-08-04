@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Editorial Policy";
+const pageTitle = "Editorial Policy | Science Calc Hub";
 const pageDescription =
   "Read the Science Lab Tools editorial policy covering research, formula validation, educational clarity, updates, corrections, and responsible content standards.";
 

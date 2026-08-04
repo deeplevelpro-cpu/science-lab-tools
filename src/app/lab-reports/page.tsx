@@ -9,7 +9,7 @@ import {
 } from "@/content/lab-reports/registry";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Lab Report Guides";
+const pageTitle = "Lab Report Guides | Formats, Examples & Tips";
 const pageDescription =
   "Learn how to write scientific lab reports with step-by-step guides covering report structure, methods, results, discussion, conclusions, tables, graphs, and templates.";
 

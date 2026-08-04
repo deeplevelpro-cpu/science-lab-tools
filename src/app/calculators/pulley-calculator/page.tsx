@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Pulley Calculator";
+const pageTitle = "Pulley Calculator | Force & Mechanical Advantage";
 
 const pageDescription =
   "Calculate load force, ideal mechanical advantage, required effort force, and input rope distance for an ideal pulley system.";

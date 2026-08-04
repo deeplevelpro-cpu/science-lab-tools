@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Terms of Use";
+const pageTitle = "Terms of Use | Science Calc Hub";
 const pageDescription =
   "Read the Science Lab Tools terms of use covering acceptable use, educational content, calculators, intellectual property, warranties, and liability limitations.";
 

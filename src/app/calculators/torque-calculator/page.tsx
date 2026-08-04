@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Torque Calculator";
+const pageTitle = "Torque Calculator | Force & Lever Arm";
 
 const pageDescription =
   "Calculate torque, perpendicular force, or lever-arm distance using τ = Fr, with SI units, formula explanations, and clear calculation steps.";

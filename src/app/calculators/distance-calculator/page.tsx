@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Distance Calculator";
+const pageTitle = "Distance Calculator | Speed, Time & Distance";
 
 const pageDescription =
   "Calculate distance, speed, or travel time using d = vt, with common motion units, automatic rearrangement, formula guidance, and clear working steps.";

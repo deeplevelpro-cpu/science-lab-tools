@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Force Calculator";
+const pageTitle = "Force Calculator | Mass & Acceleration";
 const pageDescription =
   "Calculate force, mass, or acceleration using Newton’s second law F = ma, with supported SI units, input validation, and clear step-by-step results.";
 

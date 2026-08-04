@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Work Calculator";
+const pageTitle = "Work Calculator | Force & Distance";
 const pageDescription =
   "Calculate mechanical work, force, or distance using W = Fd, with joule, newton, and meter units plus clear step-by-step calculation results.";
 

@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Dilution Calculator";
+const pageTitle = "Dilution Calculator | Molarity & Volume";
 const pageDescription =
   "Solve chemistry dilution problems using M₁V₁ = M₂V₂. Calculate initial or final concentration and volume with worked examples and clear guidance.";
 

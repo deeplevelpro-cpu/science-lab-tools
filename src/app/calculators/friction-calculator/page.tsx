@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Friction Calculator";
+const pageTitle = "Friction Calculator | Force & Coefficient";
 
 const pageDescription =
   "Calculate static or kinetic friction force, coefficient of friction, or normal force using F = μN, with clear assumptions and worked calculation steps.";

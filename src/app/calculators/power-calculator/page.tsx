@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Power Calculator";
+const pageTitle = "Power Calculator | Work, Energy & Time";
 const pageDescription =
   "Calculate power, work, or elapsed time using P = W ÷ t, with watt, joule, and time-unit guidance plus clear step-by-step calculation results.";
 

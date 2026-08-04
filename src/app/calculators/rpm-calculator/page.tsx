@@ -10,7 +10,7 @@ import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
 const pageTitle =
-  "RPM Calculator";
+  "RPM Calculator | Rotational Speed & Frequency";
 
 const pageDescription =
   "Convert RPM, rotational frequency, angular velocity, or rotation period with standard formulas, supported units, and clear conversion steps.";

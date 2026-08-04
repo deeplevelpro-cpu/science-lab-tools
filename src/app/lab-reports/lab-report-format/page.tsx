@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Lab Report Format";
+const pageTitle = "Lab Report Format | Sections & Examples";
 const pageDescription =
   "Learn the standard lab report format and the correct order, purpose, and content of each section, from title and introduction to results, discussion, and conclusion.";
 

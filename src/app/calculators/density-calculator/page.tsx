@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Density Calculator";
+const pageTitle = "Density Calculator | Mass, Volume & Density";
 const pageDescription =
   "Calculate density, mass, or volume using ρ = m ÷ V. Supports common laboratory units with worked examples, formula guidance, and common mistakes.";
 

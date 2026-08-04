@@ -8,7 +8,7 @@ import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
 const pagePath = "/calculators/ph-calculator";
-const pageTitle = "pH Calculator";
+const pageTitle = "pH Calculator | Hydrogen Ion Concentration";
 const pageDescription =
   "Calculate pH, pOH, hydrogen-ion concentration, and hydroxide-ion concentration. Includes formulas, worked examples, classifications, and acid-base guidance.";
 

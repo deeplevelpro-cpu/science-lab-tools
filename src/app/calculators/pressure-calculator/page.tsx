@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Pressure Calculator";
+const pageTitle = "Pressure Calculator | Force & Area";
 
 const pageDescription =
   "Calculate pressure, force, or area using P = F ÷ A, with pascal and area-unit guidance, formula explanations, and clear step-by-step results.";

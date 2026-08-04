@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Privacy Policy";
+const pageTitle = "Privacy Policy | Science Calc Hub";
 const pageDescription =
   "Read the Science Lab Tools privacy policy covering analytics, technical data, cookies, third-party services, data retention, and user privacy choices.";
 

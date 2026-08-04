@@ -5,7 +5,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Lab Report Template";
+const pageTitle = "Lab Report Template | Free Science Lab Format";
 const pageDescription =
   "Use this structured lab report template to organize the title, introduction, hypothesis, methods, results, discussion, conclusion, and references.";
 

@@ -66,8 +66,135 @@ function firstMatch(text, pattern) {
   return text.match(pattern)?.[1]?.trim() ?? "";
 }
 
+function firstQuotedMatch(
+  text,
+  prefix,
+) {
+  const match = text.match(
+    new RegExp(
+      prefix +
+        `(?:"((?:\\\\.|[^"\\\\])*)"|` +
+        `'((?:\\\\.|[^'\\\\])*)'|` +
+        `\`((?:\\\\.|[^\`\\\\])*)\`)`,
+    ),
+  );
+
+  return (
+    match?.[1] ??
+    match?.[2] ??
+    match?.[3] ??
+    ""
+  ).trim();
+}
+
 function countMatches(text, pattern) {
   return [...text.matchAll(pattern)].length;
+}
+
+function resolveLocalModule(
+  fromFile,
+  specifier,
+) {
+  if (
+    !specifier.startsWith(".") &&
+    !specifier.startsWith("@/")
+  ) {
+    return "";
+  }
+
+  const sourceDirectory = path.join(
+    root,
+    "src",
+  );
+
+  const basePath = specifier.startsWith("@/")
+    ? path.join(
+        sourceDirectory,
+        specifier.slice(2),
+      )
+    : path.resolve(
+        path.dirname(fromFile),
+        specifier,
+      );
+
+  const relativeToSource = path.relative(
+    sourceDirectory,
+    basePath,
+  );
+
+  if (
+    relativeToSource.startsWith("..") ||
+    path.isAbsolute(relativeToSource)
+  ) {
+    return "";
+  }
+
+  for (const candidate of [
+    basePath,
+    `${basePath}.ts`,
+    `${basePath}.tsx`,
+    `${basePath}.js`,
+    `${basePath}.jsx`,
+    path.join(basePath, "index.ts"),
+    path.join(basePath, "index.tsx"),
+    path.join(basePath, "index.js"),
+    path.join(basePath, "index.jsx"),
+  ]) {
+    if (
+      fs.existsSync(candidate) &&
+      fs.statSync(candidate).isFile()
+    ) {
+      return candidate;
+    }
+  }
+
+  return "";
+}
+
+function collectLocalSource(
+  filePath,
+  visited = new Set(),
+) {
+  const normalizedPath = path.resolve(
+    filePath,
+  );
+
+  if (visited.has(normalizedPath)) {
+    return "";
+  }
+
+  visited.add(normalizedPath);
+
+  const text = fs.readFileSync(
+    normalizedPath,
+    "utf8",
+  );
+
+  const collected = [text];
+  const modulePattern =
+    /(?:import[\s\S]*?\sfrom|export\s+(?:\*|\{[\s\S]*?\})\s+from)\s*["']([^"']+)["']/g;
+
+  for (
+    const match of text.matchAll(
+      modulePattern,
+    )
+  ) {
+    const resolved = resolveLocalModule(
+      normalizedPath,
+      match[1],
+    );
+
+    if (resolved) {
+      collected.push(
+        collectLocalSource(
+          resolved,
+          visited,
+        ),
+      );
+    }
+  }
+
+  return collected.join("\n");
 }
 
 function resolveStringConstant(
@@ -83,13 +210,10 @@ function resolveStringConstant(
     "\\$&",
   );
 
-  return firstMatch(
+  return firstQuotedMatch(
     text,
-    new RegExp(
-      `(?:export\\s+)?const\\s+${escapedName}` +
-        `(?:\\s*:\\s*[^=]+)?\\s*=\\s*` +
-        `["'\`]([^"'\\\`]+)["'\`]`,
-    ),
+    `(?:export\\s+)?const\\s+${escapedName}` +
+      `(?:\\s*:\\s*[^=]+)?\\s*=\\s*`,
   );
 }
 
@@ -102,12 +226,21 @@ function resolveMetadataValue(
     "\\$&",
   );
 
-  const variableName = firstMatch(
-    text,
-    new RegExp(
-      `${escapedProperty}:\\s*([A-Za-z_$][\\w$]*)`,
-    ),
-  );
+  const variableName =
+    firstMatch(
+      text,
+      new RegExp(
+        `${escapedProperty}:\\s*([A-Za-z_$][\\w$]*)`,
+      ),
+    ) ||
+    firstMatch(
+      text,
+      new RegExp(
+        `(?:^|[,{}]\\s*)` +
+          `(${escapedProperty})(?=\\s*[,}])`,
+        "m",
+      ),
+    );
 
   const resolvedVariable = resolveStringConstant(
     text,
@@ -118,11 +251,9 @@ function resolveMetadataValue(
     return resolvedVariable;
   }
 
-  return firstMatch(
+  return firstQuotedMatch(
     text,
-    new RegExp(
-      `${escapedProperty}:\\s*["']([^"']+)["']`,
-    ),
+    `${escapedProperty}:\\s*`,
   );
 }
 
@@ -153,6 +284,16 @@ function hasJsonLd(text) {
 }
 
 function getRenderedTitle(text) {
+  const resolvedTitle =
+    resolveMetadataValue(
+      text,
+      "title",
+    );
+
+  if (resolvedTitle) {
+    return resolvedTitle;
+  }
+
   const template = firstMatch(
     text,
     /title:\s*`([^`]+)`/,
@@ -176,10 +317,7 @@ function getRenderedTitle(text) {
     );
   }
 
-  return resolveMetadataValue(
-    text,
-    "title",
-  );
+  return "";
 }
 
 const layoutText = fs.existsSync(layoutPath)
@@ -267,8 +405,7 @@ const pages = walk(appDirectory)
 
     const hasRobots =
       hasRobotsMetadata(text) ||
-      (isHomepage &&
-        inherited.hasRobots);
+      inherited.hasRobots;
 
     const pageHasJsonLd =
       hasJsonLd(text) ||
@@ -280,13 +417,16 @@ const pages = walk(appDirectory)
       /<h1(?:\s[^>]*)?>/g,
     );
 
+    const linkedSourceText =
+      collectLocalSource(filePath);
+
     const staticInternalLinks = countMatches(
-      text,
+      linkedSourceText,
       /href=["'`]\/(?!\/|#)[^"'`]+["'`]/g,
     );
 
     const dynamicInternalLinks = countMatches(
-      text,
+      linkedSourceText,
       /href=\{(?:calculator|resource|category)\.href\}/g,
     );
 

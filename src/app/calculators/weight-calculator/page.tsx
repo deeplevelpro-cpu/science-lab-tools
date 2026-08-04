@@ -7,7 +7,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Weight Calculator";
+const pageTitle = "Weight Calculator | Mass & Gravity";
 
 const pageDescription =
   "Calculate weight, mass, or gravitational acceleration using W = m × g, with examples for Earth and the Moon.";
