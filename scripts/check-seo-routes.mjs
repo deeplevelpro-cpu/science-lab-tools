@@ -116,6 +116,10 @@ const requiredRoutes = [
     "Molarity calculator",
   ],
   [
+    ".next/server/app/calculators/molality-calculator.html",
+    "Molality calculator",
+  ],
+  [
     ".next/server/app/calculators/mass-moles-calculator.html",
     "Mass to moles calculator",
   ],
@@ -377,6 +381,51 @@ if (molarityHtml.includes('name="robots" content="noindex')) {
   failed = true;
 } else {
   console.log("OK: Molarity calculator is indexable");
+}
+
+const molalityFile =
+  ".next/server/app/calculators/molality-calculator.html";
+const molalityHtml = fs.readFileSync(molalityFile, "utf8");
+
+const molalityChecks = [
+  ["Molality Calculator", "Molality title and heading"],
+  [
+    `href="${siteUrl}/calculators/molality-calculator"`,
+    "Molality canonical",
+  ],
+  [
+    "EducationalApplication",
+    "Molality application structured data",
+  ],
+  ["FAQPage", "Molality FAQ structured data"],
+  [
+    'href="/calculators/molarity-calculator"',
+    "Molality internal molarity link",
+  ],
+  [
+    'href="/calculators/dilution-calculator"',
+    "Molality internal dilution link",
+  ],
+  [
+    'href="/calculators/mass-moles-calculator"',
+    "Molality internal mass-to-moles link",
+  ],
+];
+
+for (const [needle, label] of molalityChecks) {
+  if (!molalityHtml.includes(needle)) {
+    console.error(`MISSING: ${label}`);
+    failed = true;
+  } else {
+    console.log(`OK: ${label}`);
+  }
+}
+
+if (molalityHtml.includes('name="robots" content="noindex')) {
+  console.error("INVALID: Molality calculator is noindex");
+  failed = true;
+} else {
+  console.log("OK: Molality calculator is indexable");
 }
 
 const dilutionFile =

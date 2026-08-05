@@ -59,6 +59,7 @@ describe("SEO audit parser regressions", () => {
   it.each([
     "/calculators/empirical-formula-calculator",
     "/calculators/limiting-reactant-calculator",
+    "/calculators/molality-calculator",
     "/calculators/percent-yield-calculator",
     "/calculators/stoichiometry-calculator",
   ])(

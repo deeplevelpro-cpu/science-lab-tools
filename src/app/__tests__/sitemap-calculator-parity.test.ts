@@ -44,7 +44,7 @@ const sitemapCalculatorSlugs = [
 
 describe("calculator sitemap parity", () => {
   it("includes every calculator detail page exactly once", () => {
-    expect(calculatorPageSlugs).toHaveLength(73);
+    expect(calculatorPageSlugs).toHaveLength(74);
     expect(sitemapCalculatorSlugs).toEqual(
       calculatorPageSlugs,
     );

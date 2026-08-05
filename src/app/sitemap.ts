@@ -111,6 +111,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: absoluteUrl("/calculators/molality-calculator"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: absoluteUrl("/calculators/mass-moles-calculator"),
       changeFrequency: "monthly",
       priority: 0.9,
