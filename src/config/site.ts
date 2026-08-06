@@ -1,4 +1,4 @@
-const fallbackUrl = "http://localhost:3000";
+const fallbackUrl = "https://www.sciencecalchub.org";
 
 function normalizeUrl(value: string): string {
   return value.replace(/\/+$/, "");
