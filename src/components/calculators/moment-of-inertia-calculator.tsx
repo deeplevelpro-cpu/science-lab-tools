@@ -237,6 +237,7 @@ export function MomentOfInertiaCalculator() {
 
           <div
             className="calculator-formula"
+            role="img"
             aria-label={`Selected formula: ${selectedShape.formula}`}
           >
             <span aria-hidden="true">
