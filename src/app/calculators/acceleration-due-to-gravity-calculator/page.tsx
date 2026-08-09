@@ -125,21 +125,21 @@ export default function AccelerationDueToGravityCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(applicationSchema),
+          __html: JSON.stringify(applicationSchema).replace(/</g, "\\u003c"),
         }}
       />
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
         }}
       />
 
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
+          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
         }}
       />
 

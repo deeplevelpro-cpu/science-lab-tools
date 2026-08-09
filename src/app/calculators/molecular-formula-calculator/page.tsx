@@ -125,21 +125,21 @@ export default function MolecularFormulaCalculatorPage() {
     <main>
       <script
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webApplicationSchema),
+          __html: JSON.stringify(webApplicationSchema).replace(/</g, "\\u003c"),
         }}
         type="application/ld+json"
       />
 
       <script
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema),
+          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
         }}
         type="application/ld+json"
       />
 
       <script
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema),
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c"),
         }}
         type="application/ld+json"
       />
