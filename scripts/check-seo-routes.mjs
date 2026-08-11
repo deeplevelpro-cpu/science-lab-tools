@@ -1,6 +1,8 @@
 import fs from "node:fs";
 
-const fallbackSiteUrl = "http://localhost:3000";
+// Must match the fallback in src/config/site.ts — the build resolves
+// canonical URLs against that value when NEXT_PUBLIC_SITE_URL is unset.
+const fallbackSiteUrl = "https://www.sciencecalchub.org";
 
 function normalizeSiteUrl(value) {
   return value.replace(/\/+$/, "");

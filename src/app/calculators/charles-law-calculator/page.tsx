@@ -457,17 +457,6 @@ export default function CharlesLawCalculatorPage() {
                 when gas volume changes with the amount of
                 gas at constant temperature and pressure.
               </p>
-
-              <p>
-                Use the{" "}
-                <Link
-                  className="article-inline-link"
-                  href="/calculators/temperature-converter"
-                >
-                  Temperature Converter
-                </Link>{" "}
-                for standalone temperature conversions.
-              </p>
             </section>
 
             <section aria-labelledby="faq-heading">

@@ -8,8 +8,10 @@
     "start": "node scripts/start-standalone.mjs",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm check:seo && pnpm check:performance",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && pnpm check:seo && pnpm check:links && pnpm check:structured-data && pnpm check:performance",
     "check:seo": "node scripts/check-seo-routes.mjs",
+    "check:links": "node scripts/check-internal-links.mjs",
+    "check:structured-data": "node scripts/check-structured-data.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "check:performance": "node scripts/check-performance-budget.mjs",
@@ -18,7 +20,7 @@
     "seo:audit:live": "node scripts/seo/audit-live-site.mjs"
   },
   "dependencies": {
-    "next": "16.2.9",
+    "next": "16.2.12",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
@@ -29,7 +31,7 @@
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.2.9",
+    "eslint-config-next": "16.2.12",
     "playwright-core": "^1.61.1",
     "tailwindcss": "4.3.1",
     "typescript": "5.9.3",
