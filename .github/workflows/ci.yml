@@ -57,11 +57,16 @@ jobs:
 
       - name: Locate installed Chromium binary
         run: |
-          CHROMIUM_BIN=$(find "$HOME/.cache/ms-playwright" -maxdepth 2 -type d -name 'chromium-*' | sort | tail -1)/chrome-linux/chrome
-          if [ ! -x "$CHROMIUM_BIN" ]; then
+          # Playwright's extracted directory layout has changed across
+          # versions (chrome-linux/ vs chrome-linux64/, etc.), so search
+          # for the executable directly instead of assuming a fixed path.
+          CHROMIUM_BIN=$(find "$HOME/.cache/ms-playwright" -type f \( -name chrome -o -name chromium \) -perm -u+x | sort | tail -1)
+          if [ -z "$CHROMIUM_BIN" ] || [ ! -x "$CHROMIUM_BIN" ]; then
             echo "Could not locate an installed Chromium binary" >&2
+            find "$HOME/.cache/ms-playwright" >&2 || true
             exit 1
           fi
+          echo "Found Chromium at $CHROMIUM_BIN"
           echo "CHROMIUM_PATH=$CHROMIUM_BIN" >> "$GITHUB_ENV"
 
       - name: Start production server and wait for it to be ready
