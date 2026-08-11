@@ -42,6 +42,12 @@ const securityHeaders = [
     key: "Cross-Origin-Opener-Policy",
     value: "same-origin",
   },
+  {
+    // Scoped to this host only (no includeSubDomains/preload) since
+    // other subdomains on this domain aren't controlled by this app.
+    key: "Strict-Transport-Security",
+    value: "max-age=63072000",
+  },
 ];
 
 const nextConfig: NextConfig = {
