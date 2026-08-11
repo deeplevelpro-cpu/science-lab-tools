@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NEXT_PUBLIC_SITE_URL: https://www.sciencecalchub.org
+
+jobs:
+  check:
+    name: Lint, typecheck, tests, build, SEO & performance gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint, typecheck, unit tests, build, SEO routes, performance budget
+        run: pnpm check
+
+  accessibility:
+    name: Accessibility (axe)
+    runs-on: ubuntu-latest
+    needs: check
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build production bundle
+        run: pnpm build
+
+      - name: Install Chromium for axe-core
+        run: npx --yes playwright@1.61.1 install --with-deps chromium
+
+      - name: Locate installed Chromium binary
+        run: |
+          CHROMIUM_BIN=$(find "$HOME/.cache/ms-playwright" -maxdepth 2 -type d -name 'chromium-*' | sort | tail -1)/chrome-linux/chrome
+          if [ ! -x "$CHROMIUM_BIN" ]; then
+            echo "Could not locate an installed Chromium binary" >&2
+            exit 1
+          fi
+          echo "CHROMIUM_PATH=$CHROMIUM_BIN" >> "$GITHUB_ENV"
+
+      - name: Start production server and wait for it to be ready
+        run: |
+          pnpm start &
+          npx --yes wait-on@7 http://127.0.0.1:3000
+        env:
+          PORT: 3000
+
+      - name: Run accessibility checks
+        run: pnpm check:a11y
+        env:
+          A11Y_BASE_URL: http://127.0.0.1:3000
