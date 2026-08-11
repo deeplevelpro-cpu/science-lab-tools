@@ -20,18 +20,18 @@
     "seo:audit:live": "node scripts/seo/audit-live-site.mjs"
   },
   "dependencies": {
-    "next": "16.2.12",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "next": "16.3.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
     "@tailwindcss/postcss": "4.3.1",
     "@types/node": "20.19.43",
-    "@types/react": "19.2.17",
-    "@types/react-dom": "19.2.3",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.2.12",
+    "eslint-config-next": "16.3.0",
     "playwright-core": "^1.61.1",
     "tailwindcss": "4.3.1",
     "typescript": "5.9.3",
