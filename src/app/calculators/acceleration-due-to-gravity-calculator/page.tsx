@@ -6,6 +6,7 @@ import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pageTitle =
   "Acceleration Due to Gravity Calculator";
@@ -67,20 +68,12 @@ const faqItems = [
 ];
 
 export default function AccelerationDueToGravityCalculatorPage() {
-  const applicationSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
+  const calculatorSchema = createCalculatorSchema({
     name: pageTitle,
     description: pageDescription,
-    url: absoluteUrl(canonicalPath),
-    applicationCategory: "EducationalApplication",
-    operatingSystem: "Any",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-  };
+    slug: "acceleration-due-to-gravity-calculator",
+    category: "Physics",
+  });
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -125,7 +118,7 @@ export default function AccelerationDueToGravityCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(applicationSchema),
+          __html: JSON.stringify(calculatorSchema),
         }}
       />
 

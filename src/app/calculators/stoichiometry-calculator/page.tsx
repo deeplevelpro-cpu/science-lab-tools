@@ -6,6 +6,7 @@ import { StoichiometryCalculator } from "@/components/calculators/stoichiometry-
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pagePath = "/calculators/stoichiometry-calculator";
 const pageUrl = absoluteUrl(pagePath);
@@ -74,39 +75,26 @@ const faqItems = [
   },
 ];
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Stoichiometry Calculator",
-  url: pageUrl,
-  description,
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript",
-  isAccessibleForFree: true,
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: siteConfig.name,
-    url: siteConfig.url,
-  },
-};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
+  mainEntity: faqItems.map((faq) => ({
     "@type": "Question",
-    name: item.question,
+    name: faq.question,
     acceptedAnswer: {
       "@type": "Answer",
-      text: item.answer,
+      text: faq.answer,
     },
   })),
 };
+
+const calculatorSchema = createCalculatorSchema({
+  name: title,
+  description: description,
+  slug: "stoichiometry-calculator",
+  category: "Chemistry",
+});
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -136,7 +124,7 @@ const breadcrumbSchema = {
 export default function StoichiometryCalculatorPage() {
   return (
     <main>
-      {[webApplicationSchema, faqSchema, breadcrumbSchema].map(
+      {[calculatorSchema, faqSchema, breadcrumbSchema].map(
         (schema, index) => (
           <script
             key={index}

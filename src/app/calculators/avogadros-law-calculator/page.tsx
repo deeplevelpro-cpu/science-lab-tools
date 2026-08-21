@@ -6,6 +6,7 @@ import { AvogadrosLawCalculator } from "@/components/calculators/avogadros-law-c
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 export const metadata: Metadata = {
   title: "Avogadro's Law Calculator | Volume & Moles",
@@ -59,24 +60,12 @@ const faqItems = [
   },
 ];
 
-const webApplicationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Avogadro's Law Calculator",
-  url: absoluteUrl(
-    "/calculators/avogadros-law-calculator",
-  ),
-  description:
-    "Calculate gas volume or amount using Avogadro's law with automatic unit conversion.",
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+const calculatorSchema = createCalculatorSchema({
+  name: "Avogadro's Law Calculator | Volume & Moles",
+  description: "Calculate gas volume or amount with Avogadro's law, V₁/n₁ = V₂/n₂. Convert liters, milliliters, cubic meters, moles, and millimoles automatically.",
+  slug: "avogadros-law-calculator",
+  category: "Chemistry",
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -124,7 +113,7 @@ export default function AvogadrosLawCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webApplicationJsonLd),
+          __html: JSON.stringify(calculatorSchema),
         }}
       />
       <script

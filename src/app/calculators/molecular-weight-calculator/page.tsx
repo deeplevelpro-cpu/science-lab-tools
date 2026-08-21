@@ -6,6 +6,7 @@ import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pageTitle = "Molecular Weight Calculator";
 const pageDescription =
@@ -59,20 +60,12 @@ const faqItems = [
   },
 ] as const;
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
+const calculatorSchema = createCalculatorSchema({
   name: pageTitle,
   description: pageDescription,
-  url: absoluteUrl(pagePath),
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+  slug: "molecular-weight-calculator",
+  category: "Chemistry",
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -115,7 +108,7 @@ const breadcrumbSchema = {
 export default function MolecularWeightCalculatorPage() {
   return (
     <main>
-      {[webApplicationSchema, faqSchema, breadcrumbSchema].map(
+      {[calculatorSchema, faqSchema, breadcrumbSchema].map(
         (schema, index) => (
           <script
             key={index}

@@ -6,6 +6,7 @@ import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pageTitle = "Percent Difference Calculator";
 const pageDescription =
@@ -56,22 +57,12 @@ const faqItems = [
   },
 ] as const;
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
+const calculatorSchema = createCalculatorSchema({
   name: pageTitle,
   description: pageDescription,
-  url: absoluteUrl(
-    "/calculators/percent-difference-calculator",
-  ),
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+  slug: "percent-difference-calculator",
+  category: "Laboratory",
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -92,7 +83,7 @@ export default function PercentDifferenceCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webApplicationSchema).replace(
+          __html: JSON.stringify(calculatorSchema).replace(
             /</g,
             "\\u003c",
           ),

@@ -6,6 +6,7 @@ import { BoylesLawCalculator } from "@/components/calculators/boyles-law-calcula
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pagePath = "/calculators/boyles-law-calculator";
 const pageTitle = "Boyle's Law Calculator";
@@ -63,20 +64,12 @@ const faqItems = [
   },
 ] as const;
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
+const calculatorSchema = createCalculatorSchema({
   name: pageTitle,
   description: pageDescription,
-  url: absoluteUrl(pagePath),
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+  slug: "boyles-law-calculator",
+  category: "Chemistry",
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -119,7 +112,7 @@ const breadcrumbSchema = {
 export default function BoylesLawCalculatorPage() {
   return (
     <main>
-      {[webApplicationSchema, faqSchema, breadcrumbSchema].map(
+      {[calculatorSchema, faqSchema, breadcrumbSchema].map(
         (schema, index) => (
           <script
             key={index}

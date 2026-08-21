@@ -6,6 +6,7 @@ import { LimitingReactantCalculator } from "@/components/calculators/limiting-re
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pagePath = "/calculators/limiting-reactant-calculator";
 const pageUrl = absoluteUrl(pagePath);
@@ -73,27 +74,12 @@ const faqItems = [
   },
 ];
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Limiting Reactant Calculator",
-  url: pageUrl,
-  description,
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript",
-  isAccessibleForFree: true,
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: siteConfig.name,
-    url: siteConfig.url,
-  },
-};
+const calculatorSchema = createCalculatorSchema({
+  name: title,
+  description: description,
+  slug: "limiting-reactant-calculator",
+  category: "Chemistry",
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -136,7 +122,7 @@ const breadcrumbSchema = {
 export default function LimitingReactantCalculatorPage() {
   return (
     <main>
-      {[webApplicationSchema, faqSchema, breadcrumbSchema].map(
+      {[calculatorSchema, faqSchema, breadcrumbSchema].map(
         (schema, index) => (
           <script
             key={index}

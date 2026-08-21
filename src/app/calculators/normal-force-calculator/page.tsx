@@ -6,6 +6,7 @@ import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pageTitle = "Normal Force Calculator";
 
@@ -71,20 +72,12 @@ const faqItems = [
   },
 ];
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
+const calculatorSchema = createCalculatorSchema({
   name: pageTitle,
   description: pageDescription,
-  url: absoluteUrl(pagePath),
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+  slug: "normal-force-calculator",
+  category: "Physics",
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -106,7 +99,7 @@ export default function NormalForceCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            webApplicationSchema,
+            calculatorSchema,
           ).replace(/</g, "\\u003c"),
         }}
       />

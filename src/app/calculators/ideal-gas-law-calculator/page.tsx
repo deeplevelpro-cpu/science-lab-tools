@@ -8,6 +8,7 @@ import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pagePath =
   "/calculators/ideal-gas-law-calculator";
@@ -73,20 +74,12 @@ const faqItems = [
   },
 ] as const;
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
+const calculatorSchema = createCalculatorSchema({
   name: pageTitle,
   description: pageDescription,
-  url: absoluteUrl(pagePath),
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+  slug: "ideal-gas-law-calculator",
+  category: "Physics",
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -130,7 +123,7 @@ export default function IdealGasLawCalculatorPage() {
   return (
     <main>
       {[
-        webApplicationSchema,
+        calculatorSchema,
         faqSchema,
         breadcrumbSchema,
       ].map((schema, index) => (

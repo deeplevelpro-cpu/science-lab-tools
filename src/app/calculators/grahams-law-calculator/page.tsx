@@ -6,6 +6,7 @@ import { GrahamsLawCalculator } from "@/components/calculators/grahams-law-calcu
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 export const metadata: Metadata = {
   title: "Graham's Law Calculator | Rate, Time & Molar Mass",
@@ -59,24 +60,12 @@ const faqItems = [
   },
 ];
 
-const webApplicationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Graham's Law Calculator",
-  url: absoluteUrl(
-    "/calculators/grahams-law-calculator",
-  ),
-  description:
-    "Calculate relative gas diffusion or effusion rate, time, and molar mass using Graham's law.",
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+const calculatorSchema = createCalculatorSchema({
+  name: "Graham's Law Calculator | Rate, Time & Molar Mass",
+  description: "Use Graham's law to calculate gas effusion or diffusion rate, time, and molar mass. Solve r₁/r₂ = √(M₂/M₁) with optional time-unit conversion.",
+  slug: "grahams-law-calculator",
+  category: "Chemistry",
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -124,7 +113,7 @@ export default function GrahamsLawCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webApplicationJsonLd),
+          __html: JSON.stringify(calculatorSchema),
         }}
       />
       <script

@@ -6,6 +6,7 @@ import { PercentYieldCalculator } from "@/components/calculators/percent-yield-c
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pagePath = "/calculators/percent-yield-calculator";
 const pageUrl = absoluteUrl(pagePath);
@@ -71,27 +72,12 @@ const faqItems = [
   },
 ];
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Percent Yield Calculator",
-  url: pageUrl,
-  description,
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript",
-  isAccessibleForFree: true,
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: siteConfig.name,
-    url: siteConfig.url,
-  },
-};
+const calculatorSchema = createCalculatorSchema({
+  name: title,
+  description: description,
+  slug: "percent-yield-calculator",
+  category: "Chemistry",
+});
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -134,7 +120,7 @@ const breadcrumbSchema = {
 export default function PercentYieldCalculatorPage() {
   return (
     <main>
-      {[webApplicationSchema, faqSchema, breadcrumbSchema].map(
+      {[calculatorSchema, faqSchema, breadcrumbSchema].map(
         (schema, index) => (
           <script
             key={index}

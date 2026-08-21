@@ -6,6 +6,7 @@ import { CharlesLawCalculator } from "@/components/calculators/charles-law-calcu
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 export const metadata: Metadata = {
   title: "Charles's Law Calculator | Volume & Temperature",
@@ -57,22 +58,12 @@ const faqItems = [
   },
 ];
 
-const webApplicationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Charles's Law Calculator",
-  url: absoluteUrl("/calculators/charles-law-calculator"),
-  description:
-    "Calculate initial or final gas volume and temperature using Charles's law.",
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+const calculatorSchema = createCalculatorSchema({
+  name: "Charles's Law Calculator | Volume & Temperature",
+  description: "Calculate initial or final gas volume and temperature with Charles's law, V₁/T₁ = V₂/T₂. Supports Kelvin, Celsius, Fahrenheit, liters, milliliters, and cubic meters.",
+  slug: "charles-law-calculator",
+  category: "Chemistry",
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -118,7 +109,7 @@ export default function CharlesLawCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webApplicationJsonLd),
+          __html: JSON.stringify(calculatorSchema),
         }}
       />
       <script

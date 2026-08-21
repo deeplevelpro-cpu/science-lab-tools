@@ -6,6 +6,7 @@ import { CombinedGasLawCalculator } from "@/components/calculators/combined-gas-
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pagePath =
   "/calculators/combined-gas-law-calculator";
@@ -77,21 +78,12 @@ const faqItems = [
   },
 ] as const;
 
-const webApplicationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Combined Gas Law Calculator",
-  url: absoluteUrl(pagePath),
+const calculatorSchema = createCalculatorSchema({
+  name: pageTitle,
   description: pageDescription,
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+  slug: "combined-gas-law-calculator",
+  category: "Chemistry",
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -134,7 +126,7 @@ const breadcrumbJsonLd = {
 export default function CombinedGasLawCalculatorPage() {
   return (
     <main>
-      {[webApplicationJsonLd, faqJsonLd, breadcrumbJsonLd].map(
+      {[calculatorSchema, faqJsonLd, breadcrumbJsonLd].map(
         (schema, index) => (
           <script
             key={index}

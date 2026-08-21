@@ -6,6 +6,7 @@ import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pageTitle = "Free Fall Calculator";
 
@@ -71,20 +72,27 @@ const faqItems = [
   },
 ];
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
+const calculatorSchema = createCalculatorSchema({
   name: pageTitle,
   description: pageDescription,
-  url: absoluteUrl(pagePath),
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
+  slug: "free-fall-calculator",
+  category: "Physics",
+});
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
 };
+
+
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -105,23 +113,16 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       position: 3,
-      name: pageTitle,
-      item: absoluteUrl(pagePath),
+      name: "Physics",
+      item: absoluteUrl("/calculators/physics"),
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: "Free Fall Calculator",
+      item: absoluteUrl("/calculators/free-fall-calculator"),
     },
   ],
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
 };
 
 export default function FreeFallCalculatorPage() {
@@ -131,7 +132,7 @@ export default function FreeFallCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            webApplicationSchema,
+            calculatorSchema,
           ).replace(/</g, "\\u003c"),
         }}
       />

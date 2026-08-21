@@ -6,6 +6,7 @@ import { DaltonsLawCalculator } from "@/components/calculators/daltons-law-calcu
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pagePath = "/calculators/daltons-law-calculator";
 
@@ -59,22 +60,12 @@ const faqItems = [
   },
 ];
 
-const webApplicationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Dalton's Law Calculator",
-  url: absoluteUrl(pagePath),
-  description:
-    "Calculate total gas pressure or a missing partial pressure using Dalton's law with automatic pressure-unit conversion.",
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+const calculatorSchema = createCalculatorSchema({
+  name: "Dalton's Law Calculator | Total & Partial Pressure",
+  description: "Calculate total pressure or a missing partial pressure with Dalton's law. Add gas pressures in Pa, kPa, bar, atm, or mmHg with automatic unit conversion.",
+  slug: "daltons-law-calculator",
+  category: "Chemistry",
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -120,7 +111,7 @@ export default function DaltonsLawCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webApplicationJsonLd),
+          __html: JSON.stringify(calculatorSchema),
         }}
       />
       <script

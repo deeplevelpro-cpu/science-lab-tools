@@ -6,6 +6,7 @@ import { GayLussacsLawCalculator } from "@/components/calculators/gay-lussacs-la
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 export const metadata: Metadata = {
   title: "Gay-Lussac's Law Calculator | Pressure & Temperature",
@@ -57,22 +58,12 @@ const faqItems = [
   },
 ];
 
-const webApplicationJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Gay-Lussac's Law Calculator",
-  url: absoluteUrl("/calculators/gay-lussacs-law-calculator"),
-  description:
-    "Calculate initial or final gas pressure and temperature using Gay-Lussac's law.",
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+const calculatorSchema = createCalculatorSchema({
+  name: "Gay-Lussac's Law Calculator | Pressure & Temperature",
+  description: "Calculate initial or final gas pressure and temperature with Gay-Lussac's law, P₁/T₁ = P₂/T₂. Supports Pa, kPa, bar, atm, mmHg, Kelvin, Celsius, and Fahrenheit.",
+  slug: "gay-lussacs-law-calculator",
+  category: "Chemistry",
+});
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -118,7 +109,7 @@ export default function GayLussacsLawCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webApplicationJsonLd),
+          __html: JSON.stringify(calculatorSchema),
         }}
       />
       <script

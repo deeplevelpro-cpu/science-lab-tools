@@ -1,8 +1,16 @@
 import type { Metadata } from "next";
+
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 import Link from "next/link";
 
 import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { MolecularFormulaCalculator } from "@/components/calculators/molecular-formula-calculator";
+
+const pageTitle =
+  "Molecular Formula Calculator | Empirical to Molecular";
+
+const pageDescription =
+  "Calculate a molecular formula from an empirical formula and molar mass. See the whole-number multiplier, formula mass, calculation steps, and examples.";
 
 const pageUrl =
   "https://science-lab-tools-murex.vercel.app/calculators/molecular-formula-calculator";
@@ -71,29 +79,12 @@ const faqSchema = {
   })),
 };
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  name: "Molecular Formula Calculator",
-  url: pageUrl,
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  browserRequirements: "Requires JavaScript",
-  description:
-    "A free chemistry calculator that determines a molecular formula from an empirical formula and compound molar mass.",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  featureList: [
-    "Empirical formula validation",
-    "Empirical formula mass calculation",
-    "Whole-number multiplier calculation",
-    "Molecular formula calculation",
-    "Worked chemistry examples",
-  ],
-};
+const calculatorSchema = createCalculatorSchema({
+  name: pageTitle,
+  description: pageDescription,
+  slug: "molecular-formula-calculator",
+  category: "Chemistry",
+});
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -125,7 +116,7 @@ export default function MolecularFormulaCalculatorPage() {
     <main>
       <script
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webApplicationSchema),
+          __html: JSON.stringify(calculatorSchema),
         }}
         type="application/ld+json"
       />

@@ -6,6 +6,7 @@ import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 
 const pageTitle = "Projectile Motion Calculator";
 
@@ -38,20 +39,12 @@ export const metadata: Metadata = {
   },
 };
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
+const calculatorSchema = createCalculatorSchema({
   name: pageTitle,
   description: pageDescription,
-  url: absoluteUrl(pagePath),
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+  slug: "projectile-motion-calculator",
+  category: "Physics",
+});
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -84,7 +77,7 @@ export default function ProjectileMotionCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webApplicationSchema).replace(
+          __html: JSON.stringify(calculatorSchema).replace(
             /</g,
             "\\u003c",
           ),
