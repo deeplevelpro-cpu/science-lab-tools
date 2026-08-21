@@ -30,6 +30,11 @@ export const metadata: Metadata = {
   },
 };
 
+const categoryCalculators = getCategoryCalculators(
+  calculators,
+  category.category,
+);
+
 const categorySchema = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -38,18 +43,22 @@ const categorySchema = {
   url: absoluteUrl(pagePath),
   mainEntity: {
     "@type": "ItemList",
-    numberOfItems: getCategoryCalculators(
-      calculators,
-      category.category,
-    ).length,
+    numberOfItems: categoryCalculators.length,
+    itemListElement: categoryCalculators.map(
+      (calculator, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: calculator.name,
+        url: absoluteUrl(
+          `/calculators/${calculator.slug}`,
+        ),
+      }),
+    ),
   },
 };
 
 export default function ChemistryCalculatorsPage() {
-  const chemistryCalculators = getCategoryCalculators(
-    calculators,
-    category.category,
-  );
+  const chemistryCalculators = categoryCalculators;
 
   return (
     <>
