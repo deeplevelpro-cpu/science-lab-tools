@@ -29,6 +29,23 @@ export function CalculatorTrustPanel({
           units, assumptions, and common mistakes.
         </p>
 
+        <dl className="calculator-trust-panel__details">
+          <div>
+            <dt>Written by</dt>
+            <dd>{siteConfig.creator}</dd>
+          </div>
+
+          <div>
+            <dt>Reviewed by</dt>
+            <dd>Science Lab Tools Scientific Review Team</dd>
+          </div>
+
+          <div>
+            <dt>Review standard</dt>
+            <dd>Formula accuracy, units, examples, and educational clarity</dd>
+          </div>
+        </dl>
+
         <p>
           Learn more about our{" "}
           <Link
@@ -37,12 +54,19 @@ export function CalculatorTrustPanel({
           >
             formula-review and correction process
           </Link>
-          , or read{" "}
+          , explore our{" "}
           <Link
             className="article-inline-link"
-            href="/about"
+            href="/methodology"
           >
-            about Science Lab Tools
+            calculation methodology
+          </Link>
+          , or view our{" "}
+          <Link
+            className="article-inline-link"
+            href="/references"
+          >
+            scientific references
           </Link>
           .
         </p>

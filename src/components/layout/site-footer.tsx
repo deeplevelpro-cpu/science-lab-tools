@@ -41,6 +41,9 @@ export function SiteFooter() {
               <Link href="/editorial-policy">
                 Editorial Policy
               </Link>
+              <Link href="/authors">Authors</Link>
+              <Link href="/methodology">Methodology</Link>
+              <Link href="/references">References</Link>
               <Link href="/disclaimer">Disclaimer</Link>
               <Link href="/privacy-policy">
                 Privacy Policy
