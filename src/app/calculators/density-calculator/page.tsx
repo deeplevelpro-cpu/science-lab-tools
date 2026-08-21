@@ -6,6 +6,10 @@ import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
+import {
+  createCalculatorBreadcrumbSchema,
+  createCalculatorSchema,
+} from "@/lib/seo/calculator-schema";
 
 const pageTitle = "Density Calculator | Mass, Volume & Density";
 const pageDescription =
@@ -52,20 +56,29 @@ const faqItems = [
   },
 ] as const;
 
-const webApplicationSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
+const calculatorSchema = createCalculatorSchema({
   name: pageTitle,
   description: pageDescription,
-  url: absoluteUrl("/calculators/density-calculator"),
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Any",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-};
+  slug: "density-calculator",
+  category: "Physics",
+  relatedCalculators: [
+    {
+      name: "Mass Calculator",
+      href: "/calculators/mass-moles-calculator",
+    },
+    {
+      name: "Specific Heat Calculator",
+      href: "/calculators/specific-heat-calculator",
+    },
+  ],
+});
+
+const breadcrumbSchema =
+  createCalculatorBreadcrumbSchema({
+    name: "Density Calculator",
+    slug: "density-calculator",
+    category: "Physics",
+  });
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -86,7 +99,17 @@ export default function DensityCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(webApplicationSchema).replace(
+          __html: JSON.stringify(calculatorSchema).replace(
+            /</g,
+            "\\u003c",
+          ),
+        }}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(
             /</g,
             "\\u003c",
           ),
