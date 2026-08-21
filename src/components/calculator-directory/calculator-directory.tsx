@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import type { CalculatorDefinition } from "@/content/calculators/registry";
+
+import { CalculatorCard } from "./calculator-card";
 
 type SortOption = "name-asc" | "name-desc" | "newest";
 
@@ -125,33 +126,10 @@ export function CalculatorDirectory({
       {visibleCalculators.length ? (
         <div className="calculator-directory-grid">
           {visibleCalculators.map((calculator) => (
-            <article
-              className="calculator-directory-card"
+            <CalculatorCard
               key={calculator.slug}
-            >
-              <div className="calculator-directory-card__top">
-                <span>{calculator.category}</span>
-                <span className="published-badge">
-                  Published
-                </span>
-              </div>
-
-              <h3>
-                <Link href={calculator.href}>
-                  {calculator.name}
-                </Link>
-              </h3>
-
-              <p>{calculator.shortDescription}</p>
-
-              <Link
-                className="calculator-directory-card__link"
-                href={calculator.href}
-              >
-                Open calculator
-                <span aria-hidden="true">→</span>
-              </Link>
-            </article>
+              calculator={calculator}
+            />
           ))}
         </div>
       ) : (
