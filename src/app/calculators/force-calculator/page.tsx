@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { ForceCalculator } from "@/components/calculators/force-calculator";
@@ -84,6 +88,13 @@ const faqSchema = {
     },
   })),
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "force-calculator",
+  calculators,
+);
 
 export default function ForceCalculatorPage() {
   return (
@@ -451,6 +462,11 @@ export default function ForceCalculatorPage() {
           <CalculatorTrustPanel subject="physics" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

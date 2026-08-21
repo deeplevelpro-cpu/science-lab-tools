@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { FreeFallCalculator } from "@/components/calculators/free-fall-calculator";
@@ -124,6 +128,13 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "free-fall-calculator",
+  calculators,
+);
 
 export default function FreeFallCalculatorPage() {
   return (
@@ -572,6 +583,11 @@ export default function FreeFallCalculatorPage() {
           <CalculatorTrustPanel subject="physics" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

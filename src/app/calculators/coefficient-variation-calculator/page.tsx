@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { CoefficientVariationCalculator } from "@/components/calculators/coefficient-variation-calculator";
@@ -85,6 +89,13 @@ const faqSchema = {
     },
   })),
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "coefficient-variation-calculator",
+  calculators,
+);
 
 export default function CoefficientVariationCalculatorPage() {
   return (
@@ -403,6 +414,11 @@ export default function CoefficientVariationCalculatorPage() {
           <CalculatorTrustPanel subject="laboratory" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

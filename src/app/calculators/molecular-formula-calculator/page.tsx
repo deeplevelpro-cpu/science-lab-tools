@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
+
 import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
 import Link from "next/link";
 
@@ -110,6 +114,13 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "molecular-formula-calculator",
+  calculators,
+);
 
 export default function MolecularFormulaCalculatorPage() {
   return (
@@ -387,6 +398,11 @@ export default function MolecularFormulaCalculatorPage() {
           <CalculatorTrustPanel subject="chemistry" />
         </div>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

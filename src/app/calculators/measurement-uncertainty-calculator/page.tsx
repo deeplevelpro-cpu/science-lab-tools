@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { MeasurementUncertaintyCalculator } from "@/components/calculators/measurement-uncertainty-calculator";
@@ -81,6 +85,13 @@ const faqSchema = {
     },
   })),
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "measurement-uncertainty-calculator",
+  calculators,
+);
 
 export default function MeasurementUncertaintyCalculatorPage() {
   return (
@@ -424,6 +435,11 @@ export default function MeasurementUncertaintyCalculatorPage() {
           <CalculatorTrustPanel subject="laboratory" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import {
@@ -88,6 +92,13 @@ const faqSchema = {
     },
   })),
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "elastic-potential-energy-calculator",
+  calculators,
+);
 
 export default function ElasticPotentialEnergyCalculatorPage() {
   return (
@@ -443,6 +454,11 @@ export default function ElasticPotentialEnergyCalculatorPage() {
           <CalculatorTrustPanel subject="physics" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

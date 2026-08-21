@@ -1,6 +1,10 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
+
 import { AccelerationDueToGravityCalculator } from "@/components/calculators/acceleration-due-to-gravity-calculator";
 import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { Container } from "@/components/ui/container";
@@ -66,6 +70,13 @@ const faqItems = [
       "Yes. Enter the mass and radius of any planet, moon, star, or other spherical celestial body to estimate its surface gravitational acceleration.",
   },
 ];
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "acceleration-due-to-gravity-calculator",
+  calculators,
+);
 
 export default function AccelerationDueToGravityCalculatorPage() {
   const calculatorSchema = createCalculatorSchema({
@@ -492,6 +503,11 @@ export default function AccelerationDueToGravityCalculatorPage() {
           <CalculatorTrustPanel subject="physics" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

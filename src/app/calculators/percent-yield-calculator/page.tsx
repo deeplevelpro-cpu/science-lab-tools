@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { CalculatorTrustPanel } from "@/components/calculator-trust";
@@ -116,6 +120,13 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "percent-yield-calculator",
+  calculators,
+);
 
 export default function PercentYieldCalculatorPage() {
   return (
@@ -493,6 +504,11 @@ export default function PercentYieldCalculatorPage() {
           <CalculatorTrustPanel subject="chemistry" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { PowerCalculator } from "@/components/calculators/power-calculator";
@@ -79,6 +83,13 @@ const faqSchema = {
     },
   })),
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "power-calculator",
+  calculators,
+);
 
 export default function PowerCalculatorPage() {
   return (
@@ -426,6 +437,11 @@ export default function PowerCalculatorPage() {
           <CalculatorTrustPanel subject="physics" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { MassMolesCalculator } from "@/components/calculators/mass-moles-calculator";
@@ -80,6 +84,13 @@ const faqSchema = {
     },
   })),
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "mass-moles-calculator",
+  calculators,
+);
 
 export default function MassMolesCalculatorPage() {
   return (
@@ -344,6 +355,11 @@ export default function MassMolesCalculatorPage() {
           <CalculatorTrustPanel subject="chemistry" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

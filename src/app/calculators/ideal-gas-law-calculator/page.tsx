@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import {
@@ -118,6 +122,13 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "ideal-gas-law-calculator",
+  calculators,
+);
 
 export default function IdealGasLawCalculatorPage() {
   return (
@@ -586,6 +597,11 @@ export default function IdealGasLawCalculatorPage() {
           <CalculatorTrustPanel subject="chemistry" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

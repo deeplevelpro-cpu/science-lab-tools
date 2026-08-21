@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { InclinedPlaneCalculator } from "@/components/calculators/inclined-plane-calculator";
@@ -91,6 +95,13 @@ const faqSchema = {
     },
   })),
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "inclined-plane-calculator",
+  calculators,
+);
 
 export default function InclinedPlaneCalculatorPage() {
   return (
@@ -545,6 +556,11 @@ export default function InclinedPlaneCalculatorPage() {
           <CalculatorTrustPanel subject="physics" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { DilutionCalculator } from "@/components/calculators/dilution-calculator";
@@ -72,6 +76,13 @@ const faqSchema = {
     },
   })),
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "dilution-calculator",
+  calculators,
+);
 
 export default function DilutionCalculatorPage() {
   return (
@@ -271,6 +282,11 @@ export default function DilutionCalculatorPage() {
           <CalculatorTrustPanel subject="chemistry" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

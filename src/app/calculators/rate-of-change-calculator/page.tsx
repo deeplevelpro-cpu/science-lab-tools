@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { RateOfChangeCalculator } from "@/components/calculators/rate-of-change-calculator";
@@ -84,6 +88,13 @@ const faqSchema = {
     },
   })),
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "rate-of-change-calculator",
+  calculators,
+);
 
 export default function RateOfChangeCalculatorPage() {
   return (
@@ -431,6 +442,11 @@ export default function RateOfChangeCalculatorPage() {
           <CalculatorTrustPanel subject="laboratory" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

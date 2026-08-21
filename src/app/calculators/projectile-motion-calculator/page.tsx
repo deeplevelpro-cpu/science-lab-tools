@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { ProjectileMotionCalculator } from "@/components/calculators/projectile-motion-calculator";
@@ -70,6 +74,13 @@ const breadcrumbSchema = {
     },
   ],
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "projectile-motion-calculator",
+  calculators,
+);
 
 export default function ProjectileMotionCalculatorPage() {
   return (
@@ -185,6 +196,11 @@ export default function ProjectileMotionCalculatorPage() {
           <CalculatorTrustPanel subject="physics" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }

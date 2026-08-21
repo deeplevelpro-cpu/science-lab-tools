@@ -1,4 +1,8 @@
 import type { Metadata } from "next";
+
+import { RelatedCalculators } from "@/components/related-calculators";
+import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
+import { calculators } from "@/content/calculators/registry";
 import Link from "next/link";
 
 import { KineticEnergyCalculator } from "@/components/calculators/kinetic-energy-calculator";
@@ -84,6 +88,13 @@ const faqSchema = {
     },
   })),
 };
+
+
+
+const relatedCalculators = getRelatedCalculators(
+  "kinetic-energy-calculator",
+  calculators,
+);
 
 export default function KineticEnergyCalculatorPage() {
   return (
@@ -456,6 +467,11 @@ export default function KineticEnergyCalculatorPage() {
           <CalculatorTrustPanel subject="physics" />
         </Container>
       </section>
-    </main>
+    
+
+      <RelatedCalculators
+        calculators={relatedCalculators}
+      />
+</main>
   );
 }
