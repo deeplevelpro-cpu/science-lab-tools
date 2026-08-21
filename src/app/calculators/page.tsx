@@ -5,6 +5,7 @@ import { CalculatorDirectory } from "@/components/calculator-directory";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { calculators } from "@/content/calculators/registry";
+import { calculatorCategories } from "@/content/calculators/categories";
 import { absoluteUrl } from "@/lib/seo/url";
 
 const pageTitle =
@@ -156,7 +157,32 @@ export default function CalculatorsPage() {
             </p>
           </div>
 
-          <CalculatorDirectory calculators={calculators} />
+          <div className="calculator-category-grid">
+  {calculatorCategories.map((category) => (
+    <article
+      key={category.slug}
+      className="calculator-directory-card"
+    >
+      <h3>
+        <Link href={`/calculators/${category.slug}`}>
+          {category.name}
+        </Link>
+      </h3>
+
+      <p>{category.description}</p>
+
+      <Link
+        className="calculator-directory-card__link"
+        href={`/calculators/${category.slug}`}
+      >
+        Explore calculators
+        <span aria-hidden="true">→</span>
+      </Link>
+    </article>
+  ))}
+</div>
+
+<CalculatorDirectory calculators={calculators} />
         </Container>
       </section>
 
