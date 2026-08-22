@@ -11,6 +11,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
+import { createFAQSchema } from "@/lib/seo/faq-schema";
 
 const pagePath =
   "/calculators/combined-gas-law-calculator";
@@ -89,18 +90,7 @@ const calculatorSchema = createCalculatorSchema({
   category: "Chemistry",
 });
 
-const faqJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
+const faqJsonLd = createFAQSchema(faqItems);
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",

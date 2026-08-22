@@ -11,6 +11,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
+import { createFAQSchema } from "@/lib/seo/faq-schema";
 
 const pageTitle = "Weight Calculator | Mass & Gravity";
 
@@ -83,20 +84,7 @@ const calculatorSchema = createCalculatorSchema({
   category: "Physics",
 });
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
-
-
+const faqSchema = createFAQSchema(faqItems);
 
 const relatedCalculators = getRelatedCalculators(
   "weight-calculator",

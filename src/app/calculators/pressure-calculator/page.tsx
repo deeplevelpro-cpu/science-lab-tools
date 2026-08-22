@@ -13,6 +13,7 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
+import { createFAQSchema } from "@/lib/seo/faq-schema";
 
 const pageTitle = "Pressure Calculator | Force & Area";
 
@@ -79,20 +80,7 @@ const calculatorSchema = createCalculatorSchema({
   category: "Physics",
 });
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
-
-
+const faqSchema = createFAQSchema(faqItems);
 
 const relatedCalculators = getRelatedCalculators(
   "pressure-calculator",

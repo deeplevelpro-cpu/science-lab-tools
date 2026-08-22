@@ -16,6 +16,7 @@ import {
   createCalculatorBreadcrumbSchema,
   createCalculatorSchema,
 } from "@/lib/seo/calculator-schema";
+import { createFAQSchema } from "@/lib/seo/faq-schema";
 
 const pagePath =
   "/calculators/ideal-gas-law-calculator";
@@ -88,18 +89,7 @@ const calculatorSchema = createCalculatorSchema({
   category: "Physics",
 });
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
-    "@type": "Question",
-    name: item.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: item.answer,
-    },
-  })),
-};
+const faqSchema = createFAQSchema(faqItems);
 
 const breadcrumbSchema =
   createCalculatorBreadcrumbSchema({

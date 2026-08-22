@@ -14,6 +14,7 @@ import {
   createCalculatorBreadcrumbSchema,
   createCalculatorSchema,
 } from "@/lib/seo/calculator-schema";
+import { createFAQSchema } from "@/lib/seo/faq-schema";
 
 const pagePath = "/calculators/stoichiometry-calculator";
 const pageUrl = absoluteUrl(pagePath);
@@ -83,18 +84,7 @@ const faqItems = [
 ];
 
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqItems.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.answer,
-    },
-  })),
-};
+const faqSchema = createFAQSchema(faqItems);
 
 const calculatorSchema = createCalculatorSchema({
   name: title,

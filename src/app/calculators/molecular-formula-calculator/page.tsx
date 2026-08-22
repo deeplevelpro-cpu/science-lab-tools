@@ -8,6 +8,7 @@ import {
   createCalculatorBreadcrumbSchema,
   createCalculatorSchema,
 } from "@/lib/seo/calculator-schema";
+import { createFAQSchema } from "@/lib/seo/faq-schema";
 import Link from "next/link";
 
 import { CalculatorTrustPanel } from "@/components/calculator-trust";
@@ -73,18 +74,7 @@ const faqs = [
   },
 ] as const;
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: faqs.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.answer,
-    },
-  })),
-};
+const faqSchema = createFAQSchema(faqs);
 
 const calculatorSchema = createCalculatorSchema({
   name: pageTitle,
