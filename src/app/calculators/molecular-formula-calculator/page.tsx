@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { absoluteUrl } from "@/lib/seo/url";
 
 import { RelatedCalculators } from "@/components/related-calculators";
 import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
@@ -21,7 +22,7 @@ const pageDescription =
   "Calculate a molecular formula from an empirical formula and molar mass. See the whole-number multiplier, formula mass, calculation steps, and examples.";
 
 const pageUrl =
-  "https://science-lab-tools-murex.vercel.app/calculators/molecular-formula-calculator";
+  absoluteUrl("/calculators/molecular-formula-calculator");
 
 export const metadata: Metadata = {
   title: "Molecular Formula Calculator | Empirical to Molecular",
