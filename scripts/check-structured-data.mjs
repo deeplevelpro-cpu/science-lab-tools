@@ -115,18 +115,28 @@ for (const file of htmlFiles) {
       report(route, `JSON-LD is missing a schema.org @context`);
     }
 
-    const type = schema["@type"];
-    if (!type) {
-      report(route, "JSON-LD is missing @type");
-      continue;
-    }
+    const schemas = schema["@graph"]
+      ? schema["@graph"]
+      : [schema];
 
-    if (type === "FAQPage") {
-      validateFaqPage(route, schema);
-    } else if (type === "Article") {
-      validateArticle(route, schema);
-    } else if (type === "WebApplication") {
-      validateWebApplication(route, schema);
+    for (const item of schemas) {
+      const type = item["@type"];
+
+      if (!type) {
+        report(route, "JSON-LD graph item is missing @type");
+        continue;
+      }
+
+      if (type === "FAQPage") {
+        validateFaqPage(route, item);
+      } else if (type === "Article") {
+        validateArticle(route, item);
+      } else if (
+        type === "WebApplication" ||
+        (Array.isArray(type) && type.includes("WebApplication"))
+      ) {
+        validateWebApplication(route, item);
+      }
     }
   }
 }
