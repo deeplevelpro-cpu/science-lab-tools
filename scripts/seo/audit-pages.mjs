@@ -304,7 +304,7 @@ function getRenderedTitle(text) {
       /\$\{([A-Za-z_$][\w$]*)\}/g,
       (_, variableName) => {
         if (variableName === "siteConfig") {
-          return "Science Lab Tools";
+          return "ScienceCalcHub";
         }
 
         return (

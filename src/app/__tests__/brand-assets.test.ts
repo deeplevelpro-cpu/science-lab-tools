@@ -66,7 +66,7 @@ describe("brand assets", () => {
 
   it("provides descriptive Open Graph alt text", () => {
     expect(openGraphSource).toContain(
-      "Science Lab Tools",
+      "ScienceCalcHub",
     );
 
     expect(openGraphSource).toContain(
@@ -102,7 +102,7 @@ describe("brand assets", () => {
 
   it("keeps the reusable SVG brand mark", () => {
     expect(svgSource).toContain("<svg");
-    expect(svgSource).toContain("Science Lab Tools");
+    expect(svgSource).toContain("ScienceCalcHub");
     expect(svgSource).toContain("#0f766e");
     expect(svgSource).toContain("#f59e0b");
   });
