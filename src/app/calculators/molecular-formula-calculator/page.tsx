@@ -4,7 +4,10 @@ import { RelatedCalculators } from "@/components/related-calculators";
 import { getRelatedCalculators } from "@/content/calculators/get-related-calculators";
 import { calculators } from "@/content/calculators/registry";
 
-import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
+import {
+  createCalculatorBreadcrumbSchema,
+  createCalculatorSchema,
+} from "@/lib/seo/calculator-schema";
 import Link from "next/link";
 
 import { CalculatorTrustPanel } from "@/components/calculator-trust";
@@ -90,30 +93,12 @@ const calculatorSchema = createCalculatorSchema({
   category: "Chemistry",
 });
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://science-lab-tools-murex.vercel.app",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Calculators",
-      item: "https://science-lab-tools-murex.vercel.app/calculators",
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Molecular Formula Calculator",
-      item: pageUrl,
-    },
-  ],
-};
+const breadcrumbSchema =
+  createCalculatorBreadcrumbSchema({
+    name: pageTitle,
+    slug: "molecular-formula-calculator",
+    category: "Chemistry",
+  });
 
 
 

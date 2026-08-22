@@ -10,7 +10,10 @@ import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
-import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
+import {
+  createCalculatorBreadcrumbSchema,
+  createCalculatorSchema,
+} from "@/lib/seo/calculator-schema";
 
 const pageTitle = "Projectile Motion Calculator";
 
@@ -50,30 +53,12 @@ const calculatorSchema = createCalculatorSchema({
   category: "Physics",
 });
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: absoluteUrl("/"),
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Calculators",
-      item: absoluteUrl("/calculators"),
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: pageTitle,
-      item: absoluteUrl(pagePath),
-    },
-  ],
-};
+const breadcrumbSchema =
+  createCalculatorBreadcrumbSchema({
+    name: pageTitle,
+    slug: "projectile-motion-calculator",
+    category: "Physics",
+  });
 
 
 

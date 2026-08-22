@@ -10,7 +10,10 @@ import { EmpiricalFormulaCalculator } from "@/components/calculators/empirical-f
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
-import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
+import {
+  createCalculatorBreadcrumbSchema,
+  createCalculatorSchema,
+} from "@/lib/seo/calculator-schema";
 
 const pagePath =
   "/calculators/empirical-formula-calculator";
@@ -104,30 +107,12 @@ const faqSchema = {
   })),
 };
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: siteConfig.url,
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Calculators",
-      item: absoluteUrl("/calculators"),
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Empirical Formula Calculator",
-      item: pageUrl,
-    },
-  ],
-};
+const breadcrumbSchema =
+  createCalculatorBreadcrumbSchema({
+    name: "Empirical Formula Calculator",
+    slug: "empirical-formula-calculator",
+    category: "Chemistry",
+  });
 
 
 

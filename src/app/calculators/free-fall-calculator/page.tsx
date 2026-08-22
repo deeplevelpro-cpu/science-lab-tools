@@ -10,7 +10,10 @@ import { CalculatorTrustPanel } from "@/components/calculator-trust";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
-import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
+import {
+  createCalculatorBreadcrumbSchema,
+  createCalculatorSchema,
+} from "@/lib/seo/calculator-schema";
 
 const pageTitle = "Free Fall Calculator";
 
@@ -98,36 +101,12 @@ const faqSchema = {
 
 
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: absoluteUrl("/"),
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Calculators",
-      item: absoluteUrl("/calculators"),
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Physics",
-      item: absoluteUrl("/calculators/physics"),
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
-      name: "Free Fall Calculator",
-      item: absoluteUrl("/calculators/free-fall-calculator"),
-    },
-  ],
-};
+const breadcrumbSchema =
+  createCalculatorBreadcrumbSchema({
+    name: pageTitle,
+    slug: "free-fall-calculator",
+    category: "Physics",
+  });
 
 
 

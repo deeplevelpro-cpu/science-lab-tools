@@ -10,7 +10,10 @@ import { LimitingReactantCalculator } from "@/components/calculators/limiting-re
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
-import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
+import {
+  createCalculatorBreadcrumbSchema,
+  createCalculatorSchema,
+} from "@/lib/seo/calculator-schema";
 
 const pagePath = "/calculators/limiting-reactant-calculator";
 const pageUrl = absoluteUrl(pagePath);
@@ -98,30 +101,12 @@ const faqSchema = {
   })),
 };
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: siteConfig.url,
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Calculators",
-      item: absoluteUrl("/calculators"),
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Limiting Reactant Calculator",
-      item: pageUrl,
-    },
-  ],
-};
+const breadcrumbSchema =
+  createCalculatorBreadcrumbSchema({
+    name: "Limiting Reactant Calculator",
+    slug: "limiting-reactant-calculator",
+    category: "Chemistry",
+  });
 
 
 

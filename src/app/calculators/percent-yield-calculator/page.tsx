@@ -10,7 +10,10 @@ import { PercentYieldCalculator } from "@/components/calculators/percent-yield-c
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
-import { createCalculatorSchema } from "@/lib/seo/calculator-schema";
+import {
+  createCalculatorBreadcrumbSchema,
+  createCalculatorSchema,
+} from "@/lib/seo/calculator-schema";
 
 const pagePath = "/calculators/percent-yield-calculator";
 const pageUrl = absoluteUrl(pagePath);
@@ -96,30 +99,12 @@ const faqSchema = {
   })),
 };
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: siteConfig.url,
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Calculators",
-      item: absoluteUrl("/calculators"),
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Percent Yield Calculator",
-      item: pageUrl,
-    },
-  ],
-};
+const breadcrumbSchema =
+  createCalculatorBreadcrumbSchema({
+    name: "Percent Yield Calculator",
+    slug: "percent-yield-calculator",
+    category: "Chemistry",
+  });
 
 
 
