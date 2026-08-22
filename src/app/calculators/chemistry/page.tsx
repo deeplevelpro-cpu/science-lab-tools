@@ -5,6 +5,7 @@ import { calculatorCategories } from "@/content/calculators/categories";
 import { getCategoryCalculators } from "@/content/calculators/get-category-calculators";
 import { calculators } from "@/content/calculators/registry";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCollectionSchema } from "@/lib/seo/collection-schema";
 
 const category = calculatorCategories.find(
   (item) => item.slug === "chemistry",
@@ -35,27 +36,12 @@ const categoryCalculators = getCategoryCalculators(
   category.category,
 );
 
-const categorySchema = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
+const categorySchema = createCollectionSchema({
   name: category.name,
   description: category.description,
-  url: absoluteUrl(pagePath),
-  mainEntity: {
-    "@type": "ItemList",
-    numberOfItems: categoryCalculators.length,
-    itemListElement: categoryCalculators.map(
-      (calculator, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: calculator.name,
-        url: absoluteUrl(
-          `/calculators/${calculator.slug}`,
-        ),
-      }),
-    ),
-  },
-};
+  path: pagePath,
+  calculators: categoryCalculators,
+});
 
 export default function ChemistryCalculatorsPage() {
   const chemistryCalculators = categoryCalculators;

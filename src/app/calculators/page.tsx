@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site";
 import { calculators } from "@/content/calculators/registry";
 import { calculatorCategories } from "@/content/calculators/categories";
 import { absoluteUrl } from "@/lib/seo/url";
+import { createCollectionSchema } from "@/lib/seo/collection-schema";
 
 const pageTitle =
   "Free Science Calculators";
@@ -40,44 +41,12 @@ export const metadata: Metadata = {
 };
 
 
-const collectionSchema = {
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
+const collectionSchema = createCollectionSchema({
   name: pageTitle,
   description: pageDescription,
-  url: absoluteUrl(pagePath),
-  isPartOf: {
-    "@type": "WebSite",
-    name: siteConfig.name,
-    url: absoluteUrl("/"),
-  },
-  about: [
-    {
-      "@type": "Thing",
-      name: "Physics calculators",
-    },
-    {
-      "@type": "Thing",
-      name: "Chemistry calculators",
-    },
-    {
-      "@type": "Thing",
-      name: "Laboratory calculators",
-    },
-  ],
-  mainEntity: {
-    "@type": "ItemList",
-    numberOfItems: calculators.length,
-    itemListElement: calculators.map(
-      (calculator, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        name: calculator.name,
-        url: absoluteUrl(calculator.href),
-      }),
-    ),
-  },
-};
+  path: pagePath,
+  calculators,
+});
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
