@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { siteConfig } from "@/config/site";
-import { absoluteUrl } from "@/lib/seo/url";
+import { createSiteSchema } from "@/lib/seo/site-schema";
 
 import "./globals.css";
 
@@ -71,14 +71,7 @@ export const viewport: Viewport = {
 const gaMeasurementId =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: siteConfig.name,
-  url: siteConfig.url,
-  description: siteConfig.description,
-  logo: absoluteUrl("/favicon.ico"),
-};
+const siteSchema = createSiteSchema();
 
 export default function RootLayout({
   children,
@@ -91,7 +84,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
+            __html: JSON.stringify(siteSchema).replace(/</g, "\\u003c"),
           }}
         />
         {gaMeasurementId ? (
