@@ -37,7 +37,7 @@ export function CalculatorTrustPanel({
 
           <div>
             <dt>Reviewed by</dt>
-            <dd>ScienceCalcHub Scientific Review Team</dd>
+            <dd>Science Lab Tools Scientific Review Team</dd>
           </div>
 
           <div>

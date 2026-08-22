@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/container";
 export const metadata: Metadata = {
   title: "Page Not Found",
   description:
-    "The requested page could not be found on Science Lab Tools.",
+    "The requested page could not be found on ScienceCalcHub.",
   robots: {
     index: false,
     follow: false,
