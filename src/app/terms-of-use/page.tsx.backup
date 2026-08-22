@@ -5,9 +5,9 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Terms of Use | ScienceCalcHub";
+const pageTitle = "Terms of Use | Science Calc Hub";
 const pageDescription =
-  "Read the ScienceCalcHub terms of use covering acceptable use, educational content, calculators, intellectual property, warranties, and liability limitations.";
+  "Read the Science Lab Tools terms of use covering acceptable use, educational content, calculators, intellectual property, warranties, and liability limitations.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -67,7 +67,7 @@ export default function TermsOfUsePage() {
             <p className="eyebrow">Website terms</p>
             <h1>Terms of Use</h1>
             <p>
-              By using ScienceCalcHub, visitors agree to use the
+              By using Science Lab Tools, visitors agree to use the
               website lawfully, responsibly, and in accordance with
               these terms.
             </p>

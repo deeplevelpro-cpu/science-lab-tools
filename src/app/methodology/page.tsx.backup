@@ -5,21 +5,21 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Authors and Review Team | ScienceCalcHub";
+const pageTitle = "Calculation Methodology | Science Lab Tools";
 const pageDescription =
-  "Meet the ScienceCalcHub editorial team and learn how scientific calculators, educational guides, and laboratory resources are reviewed for accuracy and clarity.";
+  "Learn how Science Lab Tools develops, verifies, and maintains scientific calculators using established formulas, unit standards, testing, and educational review.";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: "/authors",
+    canonical: "/methodology",
   },
   openGraph: {
     title: `${pageTitle} | ${siteConfig.name}`,
     description: pageDescription,
-    type: "profile",
-    url: absoluteUrl("/authors"),
+    type: "article",
+    url: absoluteUrl("/methodology"),
   },
   twitter: {
     card: "summary_large_image",
@@ -32,26 +32,26 @@ export const metadata: Metadata = {
   },
 };
 
-const authorSchema = {
+const methodologySchema = {
   "@context": "https://schema.org",
-  "@type": "AboutPage",
-  name: pageTitle,
+  "@type": "Article",
+  headline: pageTitle,
   description: pageDescription,
-  url: absoluteUrl("/authors"),
-  mainEntity: {
+  url: absoluteUrl("/methodology"),
+  publisher: {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
   },
 };
 
-export default function AuthorsPage() {
+export default function MethodologyPage() {
   return (
     <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(authorSchema).replace(
+          __html: JSON.stringify(methodologySchema).replace(
             /</g,
             "\\u003c",
           ),
@@ -65,17 +65,16 @@ export default function AuthorsPage() {
               <li>
                 <Link href="/">Home</Link>
               </li>
-              <li aria-current="page">Authors</li>
+              <li aria-current="page">Methodology</li>
             </ol>
           </nav>
 
           <div className="tool-page-hero__content">
-            <p className="eyebrow">Expertise and accountability</p>
-            <h1>Authors and Review Team</h1>
+            <p className="eyebrow">Scientific accuracy standards</p>
+            <h1>Calculation Methodology</h1>
             <p>
-              ScienceCalcHub is maintained by an editorial team focused
-              on accurate calculations, clear scientific explanations, and
-              practical learning resources.
+              Learn how Science Lab Tools creates and validates
+              educational calculators and scientific resources.
             </p>
           </div>
         </Container>
@@ -85,46 +84,47 @@ export default function AuthorsPage() {
         <Container className="article-layout">
           <article className="article-content">
             <section>
-              <p className="eyebrow">Editorial team</p>
-              <h2>ScienceCalcHub Editorial Team</h2>
+              <p className="eyebrow">Formula selection</p>
+              <h2>Using established scientific relationships</h2>
               <p>
-                Our team develops and maintains educational calculators,
-                laboratory guides, templates, and science learning
-                resources.
-              </p>
-              <p>
-                Content focuses on chemistry, physics, laboratory methods,
-                scientific calculations, formulas, units, and educational
-                clarity.
+                Calculator formulas are based on accepted scientific
+                relationships, standard terminology, and commonly used
+                equations.
               </p>
             </section>
 
             <section>
-              <p className="eyebrow">Review process</p>
-              <h2>How content is reviewed</h2>
+              <p className="eyebrow">Validation process</p>
+              <h2>Testing calculations and examples</h2>
               <p>
-                Calculator formulas are checked against established
-                scientific relationships. Pages are reviewed for correct
-                terminology, units, assumptions, examples, and practical
-                usefulness. Updates follow a documented review process that
-                evaluates formulas, explanations, examples, accessibility,
-                and technical quality before publication.
+                Calculator logic is tested using representative values,
+                boundary cases, invalid inputs, and expected results to
+                improve reliability.
+              </p>
+            </section>
+
+            <section>
+              <p className="eyebrow">Educational approach</p>
+              <h2>Explaining the science behind results</h2>
+              <p>
+                Pages include formulas, variables, units, examples, and
+                explanations so learners understand how calculations work.
               </p>
             </section>
 
             <section>
               <p className="eyebrow">Related standards</p>
-              <h2>Learn about our process</h2>
+              <h2>Transparency and review</h2>
               <p>
                 Read our{" "}
                 <Link href="/editorial-policy">
                   editorial policy
                 </Link>{" "}
-                and explore our{" "}
-                <Link href="/methodology">
-                  methodology
-                </Link>{" "}
-                for more details.
+                and meet our{" "}
+                <Link href="/authors">
+                  review team
+                </Link>
+                .
               </p>
             </section>
           </article>

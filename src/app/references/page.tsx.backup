@@ -5,9 +5,9 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Scientific References | ScienceCalcHub";
+const pageTitle = "Scientific References | Science Lab Tools";
 const pageDescription =
-  "Explore the scientific standards and reference principles used to develop ScienceCalcHub calculators, educational resources, and laboratory guidance.";
+  "Explore the scientific standards and reference principles used to develop Science Lab Tools calculators, educational resources, and laboratory guidance.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -74,7 +74,7 @@ export default function ReferencesPage() {
             <h1>Scientific References</h1>
             <p>
               Learn about the standards and scientific principles
-              that guide ScienceCalcHub calculators and resources.
+              that guide Science Lab Tools calculators and resources.
             </p>
           </div>
         </Container>

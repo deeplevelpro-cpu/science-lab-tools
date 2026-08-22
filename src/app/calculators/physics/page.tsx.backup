@@ -8,13 +8,13 @@ import { absoluteUrl } from "@/lib/seo/url";
 import { createCollectionSchema } from "@/lib/seo/collection-schema";
 
 const category = calculatorCategories.find(
-  (item) => item.slug === "chemistry",
+  (item) => item.slug === "physics",
 )!;
 
-const pagePath = "/calculators/chemistry";
+const pagePath = "/calculators/physics";
 
 export const metadata: Metadata = {
-  title: `${category.name} | ScienceCalcHub`,
+  title: `${category.name} | Science Lab Tools`,
   description: category.description,
   alternates: {
     canonical: pagePath,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "ScienceCalcHub",
+    title: "Science Lab Tools",
     description:
       "Science calculators and educational tools for students, teachers, and researchers.",
   },
@@ -50,8 +50,8 @@ const categorySchema = createCollectionSchema({
   calculators: categoryCalculators,
 });
 
-export default function ChemistryCalculatorsPage() {
-  const chemistryCalculators = categoryCalculators;
+export default function PhysicsCalculatorsPage() {
+  const physicsCalculators = categoryCalculators;
 
   return (
     <>
@@ -67,7 +67,7 @@ export default function ChemistryCalculatorsPage() {
 
       <CalculatorCategoryPage
         category={category}
-        calculators={chemistryCalculators}
+        calculators={physicsCalculators}
       />
     </>
   );

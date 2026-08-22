@@ -36,13 +36,13 @@ export function createCalculatorSchema({
 
     creator: {
       "@type": "Organization",
-      name: "Science Lab Tools",
+      name: "ScienceCalcHub",
       url: absoluteUrl("/"),
     },
 
     publisher: {
       "@type": "Organization",
-      name: "Science Lab Tools",
+      name: "ScienceCalcHub",
       url: absoluteUrl("/"),
     },
 

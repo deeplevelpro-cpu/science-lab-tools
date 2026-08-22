@@ -5,9 +5,9 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Calculation Methodology | Science Lab Tools";
+const pageTitle = "Calculation Methodology | ScienceCalcHub";
 const pageDescription =
-  "Learn how Science Lab Tools develops, verifies, and maintains scientific calculators using established formulas, unit standards, testing, and educational review.";
+  "Learn how ScienceCalcHub develops, verifies, and maintains scientific calculators using established formulas, unit standards, testing, and educational review.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -73,7 +73,7 @@ export default function MethodologyPage() {
             <p className="eyebrow">Scientific accuracy standards</p>
             <h1>Calculation Methodology</h1>
             <p>
-              Learn how Science Lab Tools creates and validates
+              Learn how ScienceCalcHub creates and validates
               educational calculators and scientific resources.
             </p>
           </div>
@@ -99,7 +99,9 @@ export default function MethodologyPage() {
               <p>
                 Calculator logic is tested using representative values,
                 boundary cases, invalid inputs, and expected results to
-                improve reliability.
+                improve reliability. Each calculator is designed to present
+                formulas, assumptions, units, and limitations clearly so users
+                can understand the scientific basis of each result.
               </p>
             </section>
 

@@ -8,7 +8,7 @@ export function createSiteSchema() {
       {
         "@type": "Organization",
         "@id": absoluteUrl("/#organization"),
-        name: "Science Lab Tools",
+        name: "ScienceCalcHub",
         url: absoluteUrl("/"),
         description:
           "Science calculators and educational tools for students, researchers, and laboratory users.",
@@ -17,7 +17,7 @@ export function createSiteSchema() {
         "@type": "WebSite",
         "@id": absoluteUrl("/#website"),
         url: absoluteUrl("/"),
-        name: "Science Lab Tools",
+        name: "ScienceCalcHub",
         publisher: {
           "@id": absoluteUrl("/#organization"),
         },

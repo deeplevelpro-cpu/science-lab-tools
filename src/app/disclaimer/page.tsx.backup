@@ -7,7 +7,7 @@ import { absoluteUrl } from "@/lib/seo/url";
 
 const pageTitle = "Educational Disclaimer";
 const pageDescription =
-  "Review the ScienceCalcHub educational disclaimer covering calculator limitations, laboratory safety, professional advice, accuracy, and responsible use.";
+  "Review the Science Lab Tools educational disclaimer covering calculator limitations, laboratory safety, professional advice, accuracy, and responsible use.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -67,7 +67,7 @@ export default function DisclaimerPage() {
             <p className="eyebrow">Responsible use</p>
             <h1>Educational Disclaimer</h1>
             <p>
-              ScienceCalcHub provides general educational resources
+              Science Lab Tools provides general educational resources
               and calculation aids. Users remain responsible for
               checking suitability, assumptions, and safety.
             </p>
@@ -121,10 +121,8 @@ export default function DisclaimerPage() {
               <p>
                 We aim to provide accurate and useful resources, but
                 errors, omissions, software defects, interruptions, or
-                outdated information may occur. ScienceCalcHub follows
-                documented review practices including formula checks, unit
-                verification, technical testing, and content updates to
-                improve reliability. Content may be revised without notice.
+                outdated information may occur. Content may be revised
+                without notice.
               </p>
             </section>
 

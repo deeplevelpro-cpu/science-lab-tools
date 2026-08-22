@@ -5,14 +5,14 @@ function normalizeUrl(value: string): string {
 }
 
 export const siteConfig = {
-  name: "ScienceCalcHub",
-  shortName: "ScienceCalcHub",
+  name: "Science Lab Tools",
+  shortName: "Lab Tools",
   description:
-    "ScienceCalcHub provides accurate physics, chemistry, and laboratory calculators with step-by-step explanations, formulas, examples, worksheets, and educational resources for students and teachers.",
+    "Accurate science calculators, laboratory report templates, worksheets, and practical learning resources for students and teachers.",
   url: normalizeUrl(process.env.NEXT_PUBLIC_SITE_URL ?? fallbackUrl),
   locale: "en_US",
   language: "en",
-  creator: "ScienceCalcHub Editorial Team",
+  creator: "Science Lab Tools Editorial Team",
   categories: [
     {
       name: "Lab Calculators",

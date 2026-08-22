@@ -5,9 +5,9 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Privacy Policy | ScienceCalcHub";
+const pageTitle = "Privacy Policy | Science Calc Hub";
 const pageDescription =
-  "Read the ScienceCalcHub privacy policy covering analytics, technical data, cookies, third-party services, data retention, and user privacy choices.";
+  "Read the Science Lab Tools privacy policy covering analytics, technical data, cookies, third-party services, data retention, and user privacy choices.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
             <h1>Privacy Policy</h1>
             <p>
               This policy explains the limited technical information
-              that may be processed when visitors use ScienceCalcHub.
+              that may be processed when visitors use Science Lab Tools.
             </p>
           </div>
         </Container>
@@ -152,7 +152,7 @@ export default function PrivacyPolicyPage() {
                 </Link>
                 , or learn more{" "}
                 <Link href="/about">
-                  about ScienceCalcHub
+                  about Science Lab Tools
                 </Link>
                 .
               </p>

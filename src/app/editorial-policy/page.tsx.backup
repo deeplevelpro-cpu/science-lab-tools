@@ -5,9 +5,9 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Editorial Policy | ScienceCalcHub";
+const pageTitle = "Editorial Policy | Science Calc Hub";
 const pageDescription =
-  "Read the ScienceCalcHub editorial policy covering research, formula validation, educational clarity, updates, corrections, and responsible content standards.";
+  "Read the Science Lab Tools editorial policy covering research, formula validation, educational clarity, updates, corrections, and responsible content standards.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -87,10 +87,7 @@ export default function EditorialPolicyPage() {
                 Calculator formulas are implemented from established
                 scientific relationships. Calculation engines are
                 tested using representative values, boundary cases,
-                invalid inputs, and expected rearrangements. ScienceCalcHub
-                separates educational explanations from unsupported claims
-                and prioritizes accuracy, transparency, and responsible
-                presentation of scientific information.
+                invalid inputs, and expected rearrangements.
               </p>
             </section>
 
@@ -146,7 +143,7 @@ export default function EditorialPolicyPage() {
               <p>
                 Read more{" "}
                 <Link href="/about">
-                  about ScienceCalcHub
+                  about Science Lab Tools
                 </Link>
                 , review the{" "}
                 <Link href="/disclaimer">

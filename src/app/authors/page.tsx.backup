@@ -5,9 +5,9 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/config/site";
 import { absoluteUrl } from "@/lib/seo/url";
 
-const pageTitle = "Authors and Review Team | ScienceCalcHub";
+const pageTitle = "Authors and Review Team | Science Lab Tools";
 const pageDescription =
-  "Meet the ScienceCalcHub editorial team and learn how scientific calculators, educational guides, and laboratory resources are reviewed for accuracy and clarity.";
+  "Meet the Science Lab Tools editorial team and learn how scientific calculators, educational guides, and laboratory resources are reviewed for accuracy and clarity.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -73,7 +73,7 @@ export default function AuthorsPage() {
             <p className="eyebrow">Expertise and accountability</p>
             <h1>Authors and Review Team</h1>
             <p>
-              ScienceCalcHub is maintained by an editorial team focused
+              Science Lab Tools is maintained by an editorial team focused
               on accurate calculations, clear scientific explanations, and
               practical learning resources.
             </p>
@@ -86,7 +86,7 @@ export default function AuthorsPage() {
           <article className="article-content">
             <section>
               <p className="eyebrow">Editorial team</p>
-              <h2>ScienceCalcHub Editorial Team</h2>
+              <h2>Science Lab Tools Editorial Team</h2>
               <p>
                 Our team develops and maintains educational calculators,
                 laboratory guides, templates, and science learning
@@ -106,9 +106,7 @@ export default function AuthorsPage() {
                 Calculator formulas are checked against established
                 scientific relationships. Pages are reviewed for correct
                 terminology, units, assumptions, examples, and practical
-                usefulness. Updates follow a documented review process that
-                evaluates formulas, explanations, examples, accessibility,
-                and technical quality before publication.
+                usefulness.
               </p>
             </section>
 

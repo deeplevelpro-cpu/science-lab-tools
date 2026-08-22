@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Science Lab Tools",
+    title: "ScienceCalcHub",
     description:
       "Science calculators and educational tools for students, teachers, and researchers.",
   },

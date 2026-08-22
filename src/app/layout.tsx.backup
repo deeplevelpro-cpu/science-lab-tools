@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   applicationName: siteConfig.name,
   title: {
-    default: "ScienceCalcHub - Science Calculators for Students and Teachers",
+    default: "Science Lab Tools for Students and Teachers",
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,

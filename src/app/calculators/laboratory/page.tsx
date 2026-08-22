@@ -14,7 +14,7 @@ const category = calculatorCategories.find(
 const pagePath = "/calculators/laboratory";
 
 export const metadata: Metadata = {
-  title: `${category.name} | Science Lab Tools`,
+  title: `${category.name} | ScienceCalcHub`,
   description: category.description,
   alternates: {
     canonical: pagePath,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Science Lab Tools",
+    title: "ScienceCalcHub",
     description:
       "Science calculators and educational tools for students, teachers, and researchers.",
   },

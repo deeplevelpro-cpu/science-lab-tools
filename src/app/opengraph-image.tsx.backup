@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "ScienceCalcHub — accurate science calculators and practical learning resources";
+  "Science Lab Tools — accurate calculators and practical science resources";
 
 export const size = {
   width: 1200,
@@ -78,7 +78,7 @@ export default function OpenGraphImage() {
                 letterSpacing: -3,
               }}
             >
-              ScienceCalcHub
+              Science Lab Tools
             </div>
 
             <div
@@ -90,8 +90,8 @@ export default function OpenGraphImage() {
                 lineHeight: 1.35,
               }}
             >
-              Accurate physics and chemistry calculators, laboratory templates,
-              worksheets, and step-by-step learning resources.
+              Accurate calculators, laboratory templates, worksheets,
+              and step-by-step learning resources.
             </div>
 
             <div
