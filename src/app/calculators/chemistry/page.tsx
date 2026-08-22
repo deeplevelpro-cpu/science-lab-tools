@@ -29,6 +29,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Science Lab Tools",
+    description:
+      "Science calculators and educational tools for students, teachers, and researchers.",
+  },
 };
 
 const categoryCalculators = getCategoryCalculators(
